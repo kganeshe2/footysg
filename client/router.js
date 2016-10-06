@@ -1,7 +1,12 @@
 Router.route('/', {
-	template:'landing'
+	template:'landing',
 });
 Router.route('/home');
-Router.route('/pitchlist');
-Router.route('/pitch');
-Router.route('/landing');
+
+Router.route('/pitch-list',{
+	template:'pitchList',
+});
+Router.route('/pitch-info',{
+	template: 'pitchInfo',
+});
+

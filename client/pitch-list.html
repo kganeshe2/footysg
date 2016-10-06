@@ -1,0 +1,15 @@
+<template name="pitchList">
+	<h1>Central</h1>
+
+	{{#each pitchItems}}
+		{{> pitchListItem}}
+	{{/each}}
+
+</template>
+
+<template name="pitchListItem">
+	<div>
+	 <h2><a href="/pitch-info">Pitch {{pitchName}}</a></h2>
+	 <p>Description</p>
+	</div>
+</template>
