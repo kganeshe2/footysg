@@ -1,15 +1,65 @@
+<!-- Main template in this page-->
 <template name="pitchList">
 	<h1>Central</h1>
+	
+	<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#new_pitch_form">New Pitch</button>
+
+	{{> newPitchModal}}
 
 	{{#each pitchItems}}
 		{{> pitchListItem}}
 	{{/each}}
-
 </template>
 
+
+<!-- Support template in the page -->
 <template name="pitchListItem">
 	<div>
 	 <h2><a href="/pitch-info">Pitch {{name}}</a></h2>
 	 <p>Descritpion: {{description}}</p>
+	</div>
+</template>
+
+<template name="newPitchModal">
+	<!-- Modal -->
+	<div id="new_pitch_form" class="modal fade" role="dialog">
+	  <div class="modal-dialog">
+
+	    <!-- Modal content-->
+	    <div class="modal-content">
+	    	<!-- Content header-->
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal">&times;</button>
+	        <h4 class="modal-title">New Pitch</h4>
+	      </div>
+	      <!-- Content body-->
+	      <div class="modal-body">
+	        <form class="new-pitch">
+						<div class="form-group">
+				    	<label for="pitchName">Name</label>
+				    	<input type="text" class="form-control" name="pitchName" autocomplete="off">
+				  	</div>
+				  	<div class="form-group">
+				    	<label for="pitchDescription">Description</label>
+				    	<input type="text" class="form-control" name="pitchDescription" autocomplete="off">
+				  	</div>
+				  	<div class="form-group">
+					  	<label for="sel1">Select list:</label>
+					  	<select class="form-control" name="pitchRegion">
+					    	<option>North</option>
+					    	<option>East</option>
+					    	<option>Central</option>
+					    	<option>West</option>
+					  	</select>
+						</div>
+						<button type="submit" class="btn btn-default">create</button>
+					</form>
+	      </div>
+	      <!-- Content footer-->
+	      <div class="modal-footer"> 
+	      </div>
+	    </div>
+
+	  </div>
 	</div>
 </template>
