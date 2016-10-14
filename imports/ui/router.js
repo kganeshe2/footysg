@@ -1,5 +1,5 @@
-Router.route('/', {
-	template:'landing',
+Router.route('/',{
+	template:'login',
 });
 Router.route('/home');
 
@@ -9,4 +9,6 @@ Router.route('/pitch-list',{
 Router.route('/pitch-info',{
 	template: 'pitchInfo',
 });
-
+Router.configure({
+  layoutTemplate: 'appBody',
+});
