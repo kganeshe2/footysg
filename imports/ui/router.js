@@ -27,23 +27,5 @@ Router.route('/pitch-info/:_id',{
 });
 
 Router.configure({
-  //layoutTemplate: 'appBody',
-});
-
-
-// Router examples
-Router.route('/rExp/:_id/comment/:cId', function () {
-	// get router parameters
-  var params = this.params;
-
-  // get _id and cId in URL
-  var id = params._id; 
-  var cId = params.cId; 
-  //alert("id:" + id + " cId:" + cId);
-
-  //get query string and hash fragment
-  var query = params.qeury;
-  //var hash = params.hash; 
-  alert("query:" + query.abc);
-
+  layoutTemplate: 'appBody',
 });
