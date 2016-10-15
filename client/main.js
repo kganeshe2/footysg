@@ -5,7 +5,7 @@
 import '../imports/ui/router.js';
 
 // import user views
-import '../imports/ui/landing.js';
+import '../imports/ui/login.js';
 import '../imports/ui/home.js';
 import '../imports/ui/pitch-list.js';
 import '../imports/ui/pitch-info.js';
