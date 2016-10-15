@@ -1,18 +1,17 @@
 <template name="pitchInfo">
-	<h1>Pitch 1</h1>
-	
-	<p>Description</p>
+	<!-- which spacebar to use if only one result?-->
+	{{#each Pitch}}
+		<h1>{{name}}</h1>
+		
+		<p>{{description}}</p>
 
+		<p>Address</p>
 
-	<p>Address</p>
-	
+		<p>Telephone:</p>
+		
+		<p>Owner:</p>
 
-	<p>Telephone:</p>
+		<button onclick="alert('Thank you for booking!')">BOOK NOW</button>
 	
-
-	<p>Owner:</p>
-	
-
-	<button onclick="alert('Thank you for booking!')">BOOK NOW</button>
-	
+	{{/each}}
 </template>
