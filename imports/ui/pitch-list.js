@@ -3,13 +3,6 @@ import { Pitches } from '../api/pitches.js';
 
 import './pitch-list.html';
 
-Template.pitchList.helpers({
-	'pitchItems': function(){
-		// use 'this' to reference data context 
-		return this;
-	}
-});
-
 Template.pitchList.events({
 	'submit .new-pitch'(event){
 
