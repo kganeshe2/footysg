@@ -1,22 +1,32 @@
 <template name="login">
-	<div class="jumbotron">
+	<div class="jumbotron jumbotron-login">
 		<div class="logo text-center">
-			<h1>Footy
-			<br>SG</h1>
+			<h1>Footy<br>SG</h1>
 		</div>
-		<div class="loginButtons">
-			<div class="container-fluid">		
-				<div class="row text-center">
-					<div class="col-xs-12 col-md-4 col-md-offset-4" id="green">
-						<a href="/home" class="btn">LOGIN</a>
-					</div>
-				</div>
-				<div class="row text-center">
-					<div class="col-xs-12 col-md-4 col-md-offset-4" id="green">
-						<a href="/home" class="btn">CONTINUE AS GUEST</a>
-					</div>
-				</div>	
-			</div>
-		</div>	
+		{{>loginButtons}}
 	</div>
 </template>
+
+
+<template name="loginButtons">
+	<div class="loginButtons">
+		<div class="container-fluid">		
+			<div class="row text-center">
+				<div class="col-xs-12 col-md-4 col-md-offset-4">
+					<div class="btn-group btn-group-justified" role="group" aria-label="...">
+						<a type="button" class="btn btn-default">Log in</a>
+					</div>
+				</div>
+			</div>
+			<div class="row text-center">
+				<div class="col-xs-12 col-md-4 col-md-offset-4">
+					<div class="btn-group btn-group-justified" role="group" aria-label="...">
+						<a href="/home" type="button" class="btn btn-default">Continue as guest</a>
+					</div>
+				</div>
+			</div>	
+		</div>
+	</div>		
+</template>
+
+
