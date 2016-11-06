@@ -1,42 +1,66 @@
 <template name="home">
-	<div class="jumbotron jumbotron-home">
-		<h1>FootySG</h1>
-		<span>The easiest way to book futsal in SG!</span>
+	{{>homeLogo}}
+	{{>homeNews}}
+	{{>homeRegionList}}
+</template>
+
+<template name="homeLogo">
+	<div class="home-header-section">
+		<div class="home-header-logo text-center">
+			FootySG 
+			<br>
+			 The easiest way to book futsal in SG!
+		</div>
 	</div>
-	<div class="callout-news">
+</template>
+
+<template name="homeNews">
+	<div class="home-news-section text-center">
+		NEWS NEWS PROMO CODE 
 		Whats playing
 		Button See whats playing
 	</div>
+</template>
+
+<template name="homeSectionTitle">
 	<div class="section-title">
 		See local pitches
 		Button Explore all local pitches
 	</div>
-	<div class="section-title">
-		
-	</div>
+</template>
 
+
+
+<template name="homeRegionList">
 	<div class="container-fluid">		
 			<div class="row text-center">
-				<div class="col-xs-6 region">
+				<div class="col-xs-6 home-region-list">
 					<a href="/pitch-list/North">
 							NORTH
 					</a>
 				</div>
-				<div class="col-xs-6 region">
+				<div class="col-xs-6 home-region-list">
 					<a href="/pitch-list/Central">
 							CENTRAL
 					</a>
 				</div>
 			</div>
-			<div class="row text-center region">
+			<div class="row text-center home-region-list">
 				<div class="col-xs-6">
 					<a href="/pitch-list/East">
 							EAST
 					</a>
 				</div>
-				<div class="col-xs-6 region">
+				<div class="col-xs-6 home-region-list">
 					<a href="/pitch-list/West">
 							WEST
+					</a>
+				</div>
+			</div>
+			<div class="row text-center">
+				<div class="col-xs-12">
+					<a href="/pitch-list/West">
+							ExPLORE ALL PITCHES
 					</a>
 				</div>
 			</div>

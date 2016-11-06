@@ -1,15 +1,19 @@
 <template name="login">
-	<div class="jumbotron jumbotron-login">
-		<div class="logo text-center">
-			<h1>Footy<br>SG</h1>
-		</div>
+	<!-- <div class="jumbotron jumbotron-login"> -->
+		{{>loginLogo}}
 		{{>loginButtons}}
-	</div>
+	<!-- </div> -->
 </template>
 
 
+<template name="loginLogo">
+	<div class="login-logo text-center">
+		<h1>Footy<br>SG</h1>
+	</div>
+</template>
+
 <template name="loginButtons">
-	<div class="loginButtons">
+	<div class="login-buttons">
 		<div class="container-fluid">		
 			<div class="row text-center">
 				<div class="col-xs-12 col-md-4 col-md-offset-4">
