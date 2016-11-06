@@ -39,14 +39,17 @@ body{
 }
 .home-header-section{ 
 	height: 50vh;
+	position: relative;
+	display: flex;
+	justify-content: center; /* align horizontal */
+	align-items: center; /* align vertical */
 }
 .home-header-logo{
-	color:white;
+
 }
 .home-news-section{
 	height:10vh;
 	background:grey;
-	color:white;
 }
 .home-region-list{
 	height: 25vh;
