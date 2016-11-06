@@ -1,7 +1,12 @@
 body{
-	background: #43cea2; /* For browsers that do not support gradients */
-	background: -webkit-linear-gradient(to bottom, #43cea2 , #185a9d); /* Chrome 10-25, Safari 5.1-6 */
-	background: linear-gradient(to bottom, #43cea2 , #185a9d); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	background: #43cea2; 
+	/* For browsers that do not support gradients */
+	/*background: -webkit-linear-gradient(to bottom, #43cea2 , #185a9d);*/
+	/* Chrome 10-25, Safari 5.1-6 */
+	/*background: linear-gradient(to bottom, #43cea2 , #185a9d); */
+	/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	font-size: 20px; 
+	color: white;
 }
 #app-container{
 	background-image: url('img/chrome-iphone6-432x882@2x.jpg');
@@ -20,38 +25,30 @@ body{
 	top: 12%;
 	margin: 0 auto;
 }
-#blue{
-	background-color:blue;
-}
-#green{
-	background-color:green;
-}
-.jumbotron{
-	background: transparent;
-	margin-bottom: 0px;
-}
-.jumbotron-login{
-	height: 100vh;
-}
-.jumbotron-home{
-	height: 50vh;
-	background: green;
-}
-.logo{
+.login-logo{
 	margin: auto;
  	position: absolute;
   	top: 0; left: 0; bottom: 0; right: 0;
   	height:200px;
   	width:200px;
-  	color:white;
 }
-.loginButtons{
+.login-buttons{
  	margin: auto;
  	position: absolute;
   	top: 75%; left: 0; bottom: 0; right: 0;
-  	color:white;
 }
-.region{
+.home-header-section{ 
+	height: 50vh;
+}
+.home-header-logo{
+	color:white;
+}
+.home-news-section{
+	height:10vh;
+	background:grey;
+	color:white;
+}
+.home-region-list{
 	height: 25vh;
 	background-color: yellow;
 }
