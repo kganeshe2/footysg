@@ -25,12 +25,18 @@ body{
 	top: 12%;
 	margin: 0 auto;
 }
+.flexbox{
+	position: relative;
+	display: flex;
+	justify-content: center; /* align horizontal */
+	align-items: center; /* align vertical */	
+}
 .login-logo{
 	margin: auto;
  	position: absolute;
   	top: 0; left: 0; bottom: 0; right: 0;
   	height:200px;
-  	width:200px;
+  	width:80%;
 }
 .login-buttons{
  	margin: auto;
@@ -39,17 +45,17 @@ body{
 }
 .home-header-section{ 
 	height: 50vh;
-	position: relative;
-	display: flex;
-	justify-content: center; /* align horizontal */
-	align-items: center; /* align vertical */
 }
 .home-header-logo{
-
+	background-color: purple;
 }
 .home-news-section{
-	height:10vh;
+	height: 10vh;
 	background:grey;
+}
+.home-section-title{
+	height: 10vh;
+	background:green;
 }
 .home-region-list{
 	height: 25vh;
