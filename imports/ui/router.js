@@ -5,7 +5,7 @@ Router.route('/',{
 	template:'login',
 });
 Router.route('/home');
-
+Router.route('/admin');
 
 Router.route('/pitch-list/:region', {
 	// The name of the route.
