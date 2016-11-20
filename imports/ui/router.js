@@ -25,12 +25,6 @@ Router.route('/pitch-info/:name',{
 	}
 });
 
-<<<<<<< HEAD
  //Router.configure({
   //layoutTemplate: 'appBody',
  //});
-=======
- // Router.configure({
- //  layoutTemplate: 'appBody',
- // });
->>>>>>> master
