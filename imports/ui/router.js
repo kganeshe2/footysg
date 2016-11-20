@@ -5,7 +5,7 @@ Router.route('/',{
 	template:'login',
 });
 Router.route('/home');
-
+Router.route('/admin');
 
 Router.route('/pitch-list/:region', function() {
 	this.render('pitchList',{
@@ -25,6 +25,6 @@ Router.route('/pitch-info/:_id',{
 	}
 });
 
-Router.configure({
+ Router.configure({
   layoutTemplate: 'appBody',
-});
+ });
