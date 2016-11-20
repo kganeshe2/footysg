@@ -1,4 +1,9 @@
 <template name="admin">
+	{{>adminNavBar}}
+	{{>adminBody}}
+</template>
+
+<template name="adminNavBar">
 	<div>
 		<nav class="navbar navbar-inverse solid-corners">
 			  <div class="container-fluid">
@@ -35,5 +40,13 @@
 				    </div><!-- /.navbar-collapse -->
 				  </div><!-- /.container-fluid -->
 		</nav>
+	</div>
+</template>
+
+<template name="adminBody">
+	<div class="row">
+		<div class="col-md-4 usersSection">
+			These are the current users:
+		</div>
 	</div>
 </template>
