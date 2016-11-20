@@ -4,8 +4,6 @@
 		<h1>{{thisRegion}}</h1>
 	
 		<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#new_pitch_form">New Pitch</button>
-
-		{{> newPitchModal}}
 	
 		{{#each pitchList}}
 			{{> pitchListItem}}
@@ -18,7 +16,7 @@
 <template name="pitchListItem">
 	<div class="pitch-list-item-container">
 		<div class="pitch-list-item-title">
-		 	<h2><a href="/pitch-info/{{_id}}">Pitch {{name}}</a></h2>
+		 	<h2><a href="/pitch-info/{{name}}">Pitch {{name}}</a></h2>
 		</div>
 		<div class="pitch-list-item-description">
 			<p>Pitch Types: {{pitchTypes}}</p>
