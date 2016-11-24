@@ -25,7 +25,6 @@ Router.route('/pitch-info/:name',{
 	}
 });
 
- // Router.configure({
- //  layoutTemplate: 'appBody',
- // });
-
+ //Router.configure({
+  //layoutTemplate: 'appBody',
+ //});
