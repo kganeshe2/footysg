@@ -17,14 +17,14 @@ Router.route('/pitch-list/:region', function() {
 	});
 });
 
-Router.route('/pitch-info/:_id',{
+Router.route('/pitch-info/:name',{
 	template: 'pitchInfo',
 	data: function() {
 		//console.log(Pitches.find({_id:this.params._id}));
-		return Pitches.find({_id:this.params._id});
+		return Pitches.find({name:this.params.name});
 	}
 });
 
- // Router.configure({
- //  layoutTemplate: 'appBody',
- // });
+ //Router.configure({
+  //layoutTemplate: 'appBody',
+ //});
