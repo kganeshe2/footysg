@@ -1,5 +1,13 @@
 <template name="pitchInfo">
 	<div class="pitch-info-container col-xs-12 col-md-6 col-md-offset-3">
+		<br />
+		{{> monthCalendar}}
+
+		<br />
+
+		{{> timeCalendar}}
+
+
 		<!-- which spacebar to use if only one result?-->
 		{{#each Pitch}}
 		<div class="pitch-info-title">
@@ -21,5 +29,16 @@
 		</div>
 			<button id="js-book">BOOK NOW</button>
 		{{/each}}
+
 	</div>
+
+		
+</template>
+
+<template name="monthCalendar">
+	<div id="month-calendar"></div>
+</template>
+
+<template name="timeCalendar">
+	<div id="time-calendar" style="opacity: 0"></div>
 </template>
