@@ -168,8 +168,6 @@ body{
   border-radius:0px;
 }
 
-
-
 /*CSS for Admin Dashboard Starts Here*/
 .usersSection{
   background-color: grey;
@@ -178,11 +176,34 @@ body{
 
 
 /* Calendar Box CSS Fine Tune Start*/
-#selectTime{
-  padding-left: 0px;
+#timeCalendar{
+  display: none;
+}
+.time-row{
+  padding: 0 0 10px;
 }
 
-#selectTime > .tiemRow{
-  margin-bottom: 15px;
+.time-cell{
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+.cell{
+  width: 6px;
+  height: 18px;
+}
+
+.no-left-padding{
+  padding-left: 0;
+}
+
+.no-side-padding{
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.no-side-margin{
+  margin-left: 0;
+  margin-right: 0;
 }
 /* Calendar Box CSS Fine Tune End*/

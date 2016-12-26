@@ -2,6 +2,8 @@ import './pitch-info.html';
 
 import { Transactions } from '../api/pitches.js';
 
+var startTime,bookDate;
+
 Template.pitchInfo.helpers({
 	'Pitch': function(){
 		// use 'this' to reference data context 
@@ -11,14 +13,11 @@ Template.pitchInfo.helpers({
 
 Template.pitchInfo.events({
 	'click #js-book' (event){
-
-		console.log(this._id);
-		
-		Transactions.insert({
+		var transStatus = Transactions.insert({
 			pitch_id:this._id,
 			user_id:'test_id',
-			bookSlot:'',
-			startTime:'',
+			bookDate:bookDate,
+			startTime:startTime,
 			endTime:'',
 			validity: true,
 			bookAt: new Date(),
@@ -26,8 +25,7 @@ Template.pitchInfo.events({
 			discountedPrice:,
 			promoCode:,*/
 		});
-
-		alert('Thank you :)');
+		alert("Thank you for the booking, your reference number is " + transStatus);
 	}
 });
 
@@ -42,25 +40,31 @@ Template.monthCalendar.onRendered(function() {
 		        }*/
 		    },
 			dayClick: function(date){
-				console.log('You selected ' + date.format());
+				bookDate = date.format();
 		        // change the day's background color just for fun
 		        $(this).css('background-color', 'red');
+		        $('#timeCalendar').fadeIn();
 			}
 	});
 });
 
-Template.selectTime.onRendered(function(){
+Template.timeCalendar.onRendered(function(){
 	var timeHTML = "";
 	for(row=0; row<3; row++){
-		timeHTML += "<div class='row tiemRow'>";
+		timeHTML += "<div class='row time-row no-side-margin'>";
 		for(halfCol=0; halfCol<2; halfCol++){
-			timeHTML += "<div class='col-xs-6''><div class='row'>";
+			timeHTML += "<div class='col-xs-6'><div class='row'>";
 			for(cell=0; cell<4; cell++){
-				timeHTML += "<div class='col-xs-3'><button type='button' class='btn btn-info'>1</button></div>";
+				var timeValue = 8*row + 4*halfCol + cell;
+				timeHTML += "<div class='col-xs-3 time-cell'><button type='button' class='time btn btn-warning' data='" + timeValue + "'><span class='cell'>"+timeValue+"</span></button></div>";
 			}
 			timeHTML += "</div></div>";
 		}
 		timeHTML += "</div>";
 	}
-	$('#selectTime').html(timeHTML);
+	$('#timeBoxes').html(timeHTML);
+
+	$('.time').click(function(){
+		startTime = $(this).attr("data");
+	});
 });
