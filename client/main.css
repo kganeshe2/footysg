@@ -175,3 +175,14 @@ body{
   background-color: grey;
 }
 /*CSS for Admin Dashboard Ends Here*/
+
+
+/* Calendar Box CSS Fine Tune Start*/
+#selectTime{
+  padding-left: 0px;
+}
+
+#selectTime > .tiemRow{
+  margin-bottom: 15px;
+}
+/* Calendar Box CSS Fine Tune End*/

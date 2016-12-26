@@ -31,8 +31,6 @@ Template.pitchInfo.events({
 	}
 });
 
-//var minDate = $.fullCalendar.moment('2017-12-22');
-
 Template.monthCalendar.onRendered(function() {
 		var monthCalendar = $('#month-calendar').fullCalendar({
 			header: false,
@@ -47,21 +45,22 @@ Template.monthCalendar.onRendered(function() {
 				console.log('You selected ' + date.format());
 		        // change the day's background color just for fun
 		        $(this).css('background-color', 'red');
-
-		        // show the time calendar
-		        var timeCalendar = $('#time-calendar').fullCalendar({
-		        		header: false,
-		        		hiddenDays: [1],
-		        		aspectRatio: 1,
-		       		 });
-
-		        $('#time-calendar').animate({opacity: 1}, 500, function(){
-		        });
-
-		        
-		        $('#time-calendar thead').remove();
-		        $('#time-calendar .fc-today').removeClass('fc-today');
 			}
 	});
-		monthCalendar.fullCalendar( 'today' );
+});
+
+Template.selectTime.onRendered(function(){
+	var timeHTML = "";
+	for(row=0; row<3; row++){
+		timeHTML += "<div class='row tiemRow'>";
+		for(halfCol=0; halfCol<2; halfCol++){
+			timeHTML += "<div class='col-xs-6''><div class='row'>";
+			for(cell=0; cell<4; cell++){
+				timeHTML += "<div class='col-xs-3'><button type='button' class='btn btn-info'>1</button></div>";
+			}
+			timeHTML += "</div></div>";
+		}
+		timeHTML += "</div>";
+	}
+	$('#selectTime').html(timeHTML);
 });
