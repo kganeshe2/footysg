@@ -1,4 +1,4 @@
-//import { Template } from 'meteor/templating' 
+import { Template } from 'meteor/templating' 
 import { Pitches } from '../api/pitches.js';
 
 Router.route('/',{
