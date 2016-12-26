@@ -2,3 +2,5 @@ node_modules/
 .meteor/cordova-plugins
 .meteor/platforms
 *.js
+
+imports/ui/router.js
