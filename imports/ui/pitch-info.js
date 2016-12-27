@@ -2,7 +2,7 @@ import './pitch-info.html';
 
 import { Transactions } from '../api/pitches.js';
 
-var startTime,bookDate;
+var startTime,bookDate, endTime;
 
 Template.pitchInfo.helpers({
 	'Pitch': function(){
@@ -18,7 +18,7 @@ Template.pitchInfo.events({
 			user_id:'test_id',
 			bookDate:bookDate,
 			startTime:startTime,
-			endTime:'',
+			endTime:endTime,
 			validity: true,
 			bookAt: new Date(),
 			/*originalPrice:,
@@ -44,6 +44,7 @@ Template.monthCalendar.onRendered(function() {
 		        // change the day's background color just for fun
 		        $(this).css('background-color', 'red');
 		        $('#timeCalendar').fadeIn();
+		        $('#date').html(date.format());
 			}
 	});
 });
@@ -66,5 +67,17 @@ Template.timeCalendar.onRendered(function(){
 
 	$('.time').click(function(){
 		startTime = $(this).attr("data");
+	});
+});
+
+Template.timeCalendarNew.onRendered(function(){
+	$('.time').click(function(){
+		startTime = parseInt($(this).attr("data"));
+		$('#start').html('from ' + startTime);
+	});
+
+	$('.range').click(function(){
+		endTime = parseInt($(this).attr("data")) + startTime;
+		$('#end').html('to ' + endTime);
 	});
 });

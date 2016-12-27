@@ -207,3 +207,13 @@ body{
   margin-right: 0;
 }
 /* Calendar Box CSS Fine Tune End*/
+
+/*Booking Session Start*/
+#js-book{
+  float: right;
+}
+
+#booking-session span{
+  font-size: 12px;
+}
+/*Booking Session End*/

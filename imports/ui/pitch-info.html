@@ -22,10 +22,15 @@
 		<h2>Available Date</h2>
 		{{> monthCalendar}}
 		
-		
-		{{> timeCalendar}}
+		{{> timeCalendarNew}}
 
-		<button id="js-book">BOOK NOW</button>
+		<br />
+		<div class="booking-session">
+			<span id="date"></span> 
+			<span id="start"></span>
+			<span id="end"></span>
+			<button class="btn btn-primary" id="js-book">BOOK NOW</button>
+		</div>
 		{{/each}}
 
 	</div>
@@ -41,5 +46,86 @@
 	<div id="timeCalendar">
 		<h3>Time</h3>
 		<div id="timeBoxes" class="container-fluid no-side-padding"></div>
+	</div>
+</template>
+
+<template name="timeCalendarNew">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-xs-10">
+				<h3>Available Time</h3>
+				<div class="row">
+					<div class="col-xs-2 time" data="0"><button class="btn btn-warning">0</button>
+					</div>
+					<div class="col-xs-2 time" data="1"><button class="btn btn-warning">1</button>
+					</div>
+					<div class="col-xs-2 time" data="2"><button class="btn btn-warning">2</button>
+					</div>
+					<div class="col-xs-2 time"  data="3"><button class="btn btn-warning">3</button>
+					</div>
+					<div class="col-xs-2 time" data="4"><button class="btn btn-warning">4</button>
+					</div>
+					<div class="col-xs-2 time" data="5"><button class="btn btn-warning">5</button>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-2 time" data="6"><button class="btn btn-warning">6</button>
+					</div>
+					<div class="col-xs-2 time" data="7"><button class="btn btn-warning">7</button>
+					</div>
+					<div class="col-xs-2 time" data="8"><button class="btn btn-warning">8</button>
+					</div>
+					<div class="col-xs-2 time" data="9"><button class="btn btn-warning">9</button>
+					</div>
+					<div class="col-xs-2 time" data="10"><button class="btn btn-warning">10</button>
+					</div>
+					<div class="col-xs-2 time" data="11"><button class="btn btn-warning">11</button>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-2 time" data="12"><button class="btn btn-warning">12</button>
+					</div>
+					<div class="col-xs-2 time" data="13"><button class="btn btn-warning">13</button>
+					</div>
+					<div class="col-xs-2 time" data="14"><button class="btn btn-warning">14</button>
+					</div>
+					<div class="col-xs-2 time" data="15"><button class="btn btn-warning">15</button>
+					</div>
+					<div class="col-xs-2 time" data="16"><button class="btn btn-warning">16</button>
+					</div>
+					<div class="col-xs-2 time" data="17"><button class="btn btn-warning">17</button>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-2 time" data="18"><button class="btn btn-warning">18</button>
+					</div>
+					<div class="col-xs-2 time" data="19"><button class="btn btn-warning">19</button>
+					</div>
+					<div class="col-xs-2 time" data="20"><button class="btn btn-warning">20</button>
+					</div>
+					<div class="col-xs-2 time" data="21"><button class="btn btn-warning">21</button>
+					</div>
+					<div class="col-xs-2 time" data="22"><button class="btn btn-warning">22</button>
+					</div>
+					<div class="col-xs-2 time" data="23"><button class="btn btn-warning">23</button>
+					</div>
+				</div>
+			</div>
+			<div class="col-xs-2">
+				<h3>Hours</h3>
+				<div class="row">
+					<div class="col-xs-12 range" data="1"><button class="btn btn-info">1</button></div>
+				</div>
+				<div class="row">
+					<div class="col-xs-12 range" data="2"><button class="btn btn-info">2</button></div>
+				</div>
+				<div class="row">
+					<div class="col-xs-12 range" data="3"><button class="btn btn-info">3</button></div>
+				</div>
+				<div class="row">
+					<div class="col-xs-12 range" data="4"><button class="btn btn-info">4</button></div>
+				</div>
+			</div>
+		</div>
 	</div>
 </template>
