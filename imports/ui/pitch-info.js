@@ -1,18 +1,47 @@
 import './pitch-info.html';
 
-import { Transactions } from '../api/pitches.js';
 
-var startTime,bookDate, endTime;
+import { Transactions } from '../api/pitches.js';
+import { ReactiveDict } from 'meteor/reactive-dict';
+
+var startTime, bookDate, endTime;
+
+Template.pitchInfo.onCreated(function(){
+	this.state = new ReactiveDict();
+});
 
 Template.pitchInfo.helpers({
-	'Pitch': function(){
-		// use 'this' to reference data context 
+
+	Pitch() {
 		return this;
+	},
+	startTime() {
+		const instance  = Template.instance();
+		if(instance.state.get('startTime')){
+			startTime = instance.state.get('startTime');
+			return startTime;
+		}
+		return "";
+	},
+	bookDate() {
+		const instance  = Template.instance();
+		if(instance.state.get('bookDate')){
+			bookDate = instance.state.get('bookDate');
+			return bookDate;
+		}
+		return "";
+	}, endTime() {
+		const instance  = Template.instance();
+		if(instance.state.get('timeRange')){
+			endTime = startTime + instance.state.get('timeRange');
+			return endTime;
+		}
+		return "";
 	}
 });
 
 Template.pitchInfo.events({
-	'click #js-book' (event){
+	'click #js-book' (){
 		var transStatus = Transactions.insert({
 			pitch_id:this._id,
 			user_id:'test_id',
@@ -26,6 +55,17 @@ Template.pitchInfo.events({
 			promoCode:,*/
 		});
 		alert("Thank you for the booking, your reference number is " + transStatus);
+	},
+	'click .time' (event, instance){
+		var startTime = event.target.value;
+		instance.state.set('startTime',startTime);
+	},
+	'click .range' (event, instance){
+		var timeRange = event.target.value;
+		instance.state.set('timeRange',timeRange);
+	},
+	'click #month-calendar' (event, instance){
+		instance.state.set('bookDate',bookDate);
 	}
 });
 
@@ -44,7 +84,6 @@ Template.monthCalendar.onRendered(function() {
 		        // change the day's background color just for fun
 		        $(this).css('background-color', 'red');
 		        $('#timeCalendar').fadeIn();
-		        $('#date').html(date.format());
 			}
 	});
 });
@@ -71,13 +110,22 @@ Template.timeCalendar.onRendered(function(){
 });
 
 Template.timeCalendarNew.onRendered(function(){
-	$('.time').click(function(){
-		startTime = parseInt($(this).attr("data"));
-		$('#start').html('from ' + startTime);
-	});
-
-	$('.range').click(function(){
-		endTime = parseInt($(this).attr("data")) + startTime;
-		$('#end').html('to ' + endTime);
-	});
+	// Print HTML for Available Time Section
+	var timeHTML = "<h3>Available Time</h3>";
+	for(row=0; row<4; row++){
+		timeHTML += "<div class='row'>";
+		for(col=0; col<6; col++){
+			var value = 6*row + col;
+			timeHTML += "<div class='col-xs-2'><button class='btn btn-warning time' value='" + value + "'>" + value + "</button></div>"
+		}
+		timeHTML += "</div>"
+	}
+	$('#available-time').html(timeHTML);
+	
+	// Print HTML for Hour Range Section
+	var hourHTML = "<h3>Hours</h3>";
+	for(row=0; row<4; row++){
+		hourHTML += "<div class='row'><div class='col-xs-12'><button class='btn btn-info range' value='" + (row+1) + "'>" + (row+1) + "</button></div></div>"
+	}
+	$('#hour-range').html(hourHTML);
 });
