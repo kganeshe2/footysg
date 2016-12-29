@@ -176,7 +176,7 @@ body{
 
 
 /* Calendar Box CSS Fine Tune Start*/
-#timeCalendar{
+#time-calendar{
   display: none;
 }
 .time-row{
@@ -213,7 +213,7 @@ body{
   float: right;
 }
 
-#booking-session span{
+#booking-section span{
   font-size: 12px;
 }
 /*Booking Session End*/

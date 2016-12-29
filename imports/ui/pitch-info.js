@@ -4,16 +4,20 @@ import './pitch-info.html';
 import { Transactions } from '../api/pitches.js';
 import { ReactiveDict } from 'meteor/reactive-dict';
 
-var startTime, bookDate, endTime;
+var bookDate, startTime, endTime;
+var unavailable = {};
 
 Template.pitchInfo.onCreated(function(){
 	this.state = new ReactiveDict();
 });
 
 Template.pitchInfo.helpers({
-
 	Pitch() {
 		return this;
+	},
+	dateSelected(){
+		const instance  = Template.instance();
+		return instance.state.get('dateSelected');
 	},
 	startTime() {
 		const instance  = Template.instance();
@@ -30,7 +34,8 @@ Template.pitchInfo.helpers({
 			return bookDate;
 		}
 		return "";
-	}, endTime() {
+	}, 
+	endTime() {
 		const instance  = Template.instance();
 		if(instance.state.get('timeRange')){
 			endTime = startTime + instance.state.get('timeRange');
@@ -57,75 +62,75 @@ Template.pitchInfo.events({
 		alert("Thank you for the booking, your reference number is " + transStatus);
 	},
 	'click .time' (event, instance){
-		var startTime = event.target.value;
+		startTime = event.target.value;
 		instance.state.set('startTime',startTime);
 	},
 	'click .range' (event, instance){
-		var timeRange = event.target.value;
-		instance.state.set('timeRange',timeRange);
+		timeRange = event.target.value;
+		endTime = startTime + timeRange;
+		instance.state.set('timeRange', timeRange);
 	},
 	'click #month-calendar' (event, instance){
-		instance.state.set('bookDate',bookDate);
+		instance.state.set('bookDate', bookDate);
+		instance.state.set('dateSelected', true);
 	}
-});
+});        
 
 Template.monthCalendar.onRendered(function() {
-		var monthCalendar = $('#month-calendar').fullCalendar({
-			header: false,
-			firstDay: 1,
-			aspectRatio: 2,
-			dayRender: function(date, cell){
-    			/*if (date < minDate){
-		            $(cell).addClass('fc-other-month');
-		        }*/
-		    },
-			dayClick: function(date){
-				bookDate = date.format();
-		        // change the day's background color just for fun
-		        $(this).css('background-color', 'red');
-		        $('#timeCalendar').fadeIn();
-			}
+	var monthCalendar = $('#month-calendar').fullCalendar({
+		header: false,
+		firstDay: 1,
+		aspectRatio: 2,
+		dayRender: function(date, cell){
+			/*if (date < minDate){
+	            $(cell).addClass('fc-other-month');
+	        }*/
+	    },
+		dayClick: function(date){
+			bookDate = date.format();
+	        // change the day's background color just for fun
+	        $(this).css('background-color', 'red');
+		}
+	});
+});
+
+Template.timeCalendar.onCreated(function(){
+	// Get unavailable slot
+	var trans = Transactions.find({pitch_id:Template.parentData(1).fetch()[0]._id}).fetch();
+	trans.forEach(function(item){
+		var date = item.bookDate;
+		var time = item.startTime;
+		if(typeof(unavailable[date])==="undefined"){
+			unavailable[date] = [];
+		}
+		unavailable[date].push(time);
 	});
 });
 
 Template.timeCalendar.onRendered(function(){
-	var timeHTML = "";
-	for(row=0; row<3; row++){
-		timeHTML += "<div class='row time-row no-side-margin'>";
-		for(halfCol=0; halfCol<2; halfCol++){
-			timeHTML += "<div class='col-xs-6'><div class='row'>";
-			for(cell=0; cell<4; cell++){
-				var timeValue = 8*row + 4*halfCol + cell;
-				timeHTML += "<div class='col-xs-3 time-cell'><button type='button' class='time btn btn-warning' data='" + timeValue + "'><span class='cell'>"+timeValue+"</span></button></div>";
-			}
-			timeHTML += "</div></div>";
-		}
-		timeHTML += "</div>";
-	}
-	$('#timeBoxes').html(timeHTML);
-
-	$('.time').click(function(){
-		startTime = $(this).attr("data");
-	});
-});
-
-Template.timeCalendarNew.onRendered(function(){
-	// Print HTML for Available Time Section
+	// Construct HTML for Available Time Section
 	var timeHTML = "<h3>Available Time</h3>";
 	for(row=0; row<4; row++){
 		timeHTML += "<div class='row'>";
 		for(col=0; col<6; col++){
 			var value = 6*row + col;
-			timeHTML += "<div class='col-xs-2'><button class='btn btn-warning time' value='" + value + "'>" + value + "</button></div>"
+			//console.log(typeof(unavailable[bookDate])+"::"+typeof(value));
+			if (unavailable[bookDate].includes(value.toString())){
+				timeHTML += "<div class='col-xs-2'><button class='btn btn-default time' value='" + value + "'>" + value + "</button></div>";
+			}else{
+				timeHTML += "<div class='col-xs-2'><button class='btn btn-warning time' value='" + value + "'>" + value + "</button></div>";
+			}
 		}
 		timeHTML += "</div>"
 	}
 	$('#available-time').html(timeHTML);
 	
-	// Print HTML for Hour Range Section
+	//  Construct HTML for Hour Range Section
 	var hourHTML = "<h3>Hours</h3>";
 	for(row=0; row<4; row++){
-		hourHTML += "<div class='row'><div class='col-xs-12'><button class='btn btn-info range' value='" + (row+1) + "'>" + (row+1) + "</button></div></div>"
+		hourHTML += "<div class='row'><div class='col-xs-12'><button class='btn btn-info range' value='" + (row+1) + "'>" + (row+1) + "</button></div></div>";
 	}
 	$('#hour-range').html(hourHTML);
+
+	$('#time-calendar').fadeIn();
 });
