@@ -1,4 +1,5 @@
 import './pitch-info.html';
+import './navbar.html';
 
 import { Transactions } from '../api/pitches.js';
 
@@ -27,7 +28,18 @@ Template.pitchInfo.events({
 			promoCode:,*/
 		});
 
-		alert('Thank you :)');
+		alert('Thank you :');
 	}
 });
 
+Template.navbarPitchInfo.helpers({
+	pitchName(parentData){
+		console.log(parentData.fetch());
+		return parentData.fetch()[0].name;
+	},
+	pitchRegion(parentData){
+		console.log(parentData.fetch());
+		return parentData.fetch()[0].region;
+	},
+
+})

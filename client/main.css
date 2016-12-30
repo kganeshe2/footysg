@@ -27,83 +27,6 @@ body{
 	margin: 0 auto;
 }
 
-@font-face {
-  font-family: 'lorabold';
-  src: url('font/lora-bold-subset.eot');
-  src: url('font/lora-bold-subset.eot?#iefix') format('embedded-opentype'),
-       url('font/lora-bold-subset.woff') format('woff'),
-       url('font/lora-bold-subset.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'lato';
-  src: url('font/lato-regular-webfont.eot');
-  src: url('font/lato-regular-webfont.eot?#iefix') format('embedded-opentype'),
-       url('font/lato-regular-webfont.woff') format('woff'),
-       url('font/lato-regular-webfont.ttf') format('truetype');
-  font-weight: normal;
-  font-weight: 400;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'lato';
-  src: url('font/lato-italic-webfont.eot');
-  src: url('font/lato-italic-webfont.eot?#iefix') format('embedded-opentype'),
-       url('font/lato-italic-webfont.woff') format('woff'),
-       url('font/lato-italic-webfont.ttf') format('truetype');
-  font-weight: normal;
-  font-weight: 400;
-  font-style: italic;
-
-}
-
-@font-face {
-  font-family: 'lato';
-  src: url('font/lato-bold-webfont.eot');
-  src: url('font/lato-bold-webfont.eot?#iefix') format('embedded-opentype'),
-       url('font/lato-bold-webfont.woff') format('woff'),
-       url('font/lato-bold-webfont.ttf') format('truetype');
-  font-weight: bold;
-  font-weight: 700;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'lato';
-  src: url('font/lato-black-webfont.eot');
-  src: url('font/lato-black-webfont.eot?#iefix') format('embedded-opentype'),
-       url('font/lato-black-webfont.woff') format('woff'),
-       url('font/lato-black-webfont.ttf') format('truetype');
-  font-weight: 900;
-  font-style: normal;
-}
-
-@font-face {
-	font-family: 'market';
-	src:url('icon/market.eot?-3varwy');
-	src:url('icon/market.eot?#iefix-3varwy') format('embedded-opentype'),
-		url('icon/market.woff?-3varwy') format('woff'),
-		url('icon/market.ttf?-3varwy') format('truetype'),
-		url('icon/market.svg?-3varwy#market') format('svg');
-	font-weight: normal;
-	font-style: normal;
-}
-
-@font-face {
-    font-family: 'bebasregular';
-    src: url('font/BEBAS___-webfont.eot');
-    src: url('font/BEBAS___-webfont.eot?#iefix') format('embedded-opentype'),
-         url('font/BEBAS___-webfont.woff') format('woff'),
-         url('font/BEBAS___-webfont.ttf') format('truetype'),
-         url('font/BEBAS___-webfont.svg#bebasregular') format('svg');
-    font-weight: normal;
-    font-style: normal;
-
-}
-
 
 .flexbox{
 	position: relative;
@@ -114,9 +37,9 @@ body{
 .login-logo{
 	margin: auto;
  	position: absolute;
-  	top: 0; left: 0; bottom: 0; right: 0;
-  	height:200px;
-  	width:80%;
+  top: 0; left: 0; bottom: 0; right: 0;
+  height:200px;
+  width:80%;
 }
 .login-buttons{
  	margin: auto;
@@ -124,25 +47,30 @@ body{
   	top: 75%; left: 0; bottom: 0; right: 0;
 }
 .home-header-section{ 
-	height: 50vh;
+	height: 45vh;
 }
 .home-header-logo{
 	background-color: purple;
   font-size: 3.5em;
 }
-.home-news-section{
+.home-news-row{
 	height: 10vh;
 	background:grey;
 }
-.home-section-title{
+.home-section-row{
 	height: 10vh;
 	background:green;
 }
-.home-region-list{
-	height: 25vh;
+.home-region-item{
+	height: 15vh;
 	background-color: yellow;
 }
-.pitch-list-container{
+.home-region-row{
+	height: 5vh;
+	background-color: grey;
+}
+.pitch-list-section{
+
 }
 .pitch-list-item-container{
   background-color:grey;
@@ -175,3 +103,32 @@ body{
   background-color: grey;
 }
 /*CSS for Admin Dashboard Ends Here*/
+
+/*CSS for Nav Bar Starts Here*/
+/*.nav-bar{
+  background-color: grey;
+  height: 3em;
+}
+.nav-bar-left{
+  background-color: red;
+  height: 3em;
+  width: 3em;
+  display: inline-block;
+  position: ;
+}
+.nav-bar-text{
+  background-color: blue;
+  height: 3em;
+  width: 3em;
+  display: inline-block;
+}
+.nav-bar-right{
+  background-color: yellow;
+  height: 3em;
+  width: 3em;
+  display: inline-block;
+  float: right;
+}*/
+/*CSS for Nav Bar Ends Here*/
+
+

@@ -1,6 +1,12 @@
 <template name="admin">
 	{{>adminNavBar}}
 	{{>adminBody}}
+	{{#each pitch}}
+	Pitch name :{{name}}
+	<br>
+	Pitch owner: {{owner}}
+	<br>
+	{{/each}}
 </template>
 
 <template name="adminNavBar">
@@ -46,7 +52,7 @@
 <template name="adminBody">
 	<div class="row">
 		<div class="col-md-4 usersSection">
-			These are the current users:
+			These are the all pitches under this user:
 		</div>
 	</div>
 </template>
