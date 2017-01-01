@@ -4,8 +4,8 @@ import './pitch-info.html';
 import { Transactions } from '../api/pitches.js';
 import { ReactiveDict } from 'meteor/reactive-dict';
 
-var bookDate, startTime, endTime;
-var unavailable = {};
+var bookDate, startTime=0, endTime=0;
+var unavailable;
 
 Template.pitchInfo.onCreated(function(){
 	this.state = new ReactiveDict();
@@ -37,8 +37,8 @@ Template.pitchInfo.helpers({
 	}, 
 	endTime() {
 		const instance  = Template.instance();
-		if(instance.state.get('timeRange')){
-			endTime = startTime + instance.state.get('timeRange');
+		if(instance.state.get('endTime')){
+			endTime = instance.state.get('endTime');
 			return endTime;
 		}
 		return "";
@@ -62,15 +62,24 @@ Template.pitchInfo.events({
 		alert("Thank you for the booking, your reference number is " + transStatus);
 	},
 	'click .time' (event, instance){
-		startTime = event.target.value;
+		startTime = event.target.name;
+		endTime = event.target.value;
 		instance.state.set('startTime',startTime);
-	},
-	'click .range' (event, instance){
-		timeRange = event.target.value;
-		endTime = startTime + timeRange;
-		instance.state.set('timeRange', timeRange);
+		instance.state.set('endTime', endTime);
+
+		instance.state.set('dateSelected', false);
 	},
 	'click #month-calendar' (event, instance){
+		// Get unavailable slot
+		var trans = Transactions.find({pitch_id:Template.parentData(1).fetch()[0]._id, bookDate: bookDate}).fetch();
+		unavailable = []
+		trans.forEach(function(item){
+			var time = item.startTime;
+			unavailable.push(time);
+		});
+
+		initTimePanel();
+
 		instance.state.set('bookDate', bookDate);
 		instance.state.set('dateSelected', true);
 	}
@@ -88,49 +97,31 @@ Template.monthCalendar.onRendered(function() {
 	    },
 		dayClick: function(date){
 			bookDate = date.format();
-	        // change the day's background color just for fun
-	        $(this).css('background-color', 'red');
+	    $(this).css('background-color', 'red');
 		}
 	});
 });
 
-Template.timeCalendar.onCreated(function(){
-	// Get unavailable slot
-	var trans = Transactions.find({pitch_id:Template.parentData(1).fetch()[0]._id}).fetch();
-	trans.forEach(function(item){
-		var date = item.bookDate;
-		var time = item.startTime;
-		if(typeof(unavailable[date])==="undefined"){
-			unavailable[date] = [];
-		}
-		unavailable[date].push(time);
-	});
-});
-
-Template.timeCalendar.onRendered(function(){
-	// Construct HTML for Available Time Section
-	var timeHTML = "<h3>Available Time</h3>";
-	for(row=0; row<4; row++){
+function initTimePanel(){
+	var timeHTML = "";
+	for(row=0; row<6; row++){
 		timeHTML += "<div class='row'>";
-		for(col=0; col<6; col++){
-			var value = 6*row + col;
-			//console.log(typeof(unavailable[bookDate])+"::"+typeof(value));
-			if (unavailable[bookDate].includes(value.toString())){
-				timeHTML += "<div class='col-xs-2'><button class='btn btn-default time' value='" + value + "'>" + value + "</button></div>";
-			}else{
-				timeHTML += "<div class='col-xs-2'><button class='btn btn-warning time' value='" + value + "'>" + value + "</button></div>";
-			}
-		}
-		timeHTML += "</div>"
-	}
-	$('#available-time').html(timeHTML);
-	
-	//  Construct HTML for Hour Range Section
-	var hourHTML = "<h3>Hours</h3>";
-	for(row=0; row<4; row++){
-		hourHTML += "<div class='row'><div class='col-xs-12'><button class='btn btn-info range' value='" + (row+1) + "'>" + (row+1) + "</button></div></div>";
-	}
-	$('#hour-range').html(hourHTML);
+		for(col=0; col<4; col++){
+			var time = col + 4*row;
+			var mediodia = time < 12 ? "am" : "pm"; 
+			timeHTML += "<div class='col-xs-3'><button class='btn time ";
+			if (unavailable.includes(time.toString())) timeHTML += "btn-default' disabled";
+			else timeHTML += "btn-warning'";
 
-	$('#time-calendar').fadeIn();
-});
+			timeHTML += " name='" + time + "' value='" + (time+1) + "'>" + time%12 + mediodia;
+
+			if(time==11) mediodia = "pm"; 
+			else if(time==23) mediodia = "am";
+
+			timeHTML += " - " + (time%12+1) + mediodia + "</button></div>";
+		}
+
+		timeHTML += "</div>";
+	}
+	$('#time-panel').html(timeHTML);
+}
