@@ -4,20 +4,17 @@ import './pitch-info.html';
 import { Transactions } from '../api/pitches.js';
 import { ReactiveDict } from 'meteor/reactive-dict';
 
-var bookDate, startTime=0, endTime=0;
-var unavailable;
+var bookDate=0, startTime=0, endTime=0;
+var unavailable, selectedTime;
 
 Template.pitchInfo.onCreated(function(){
 	this.state = new ReactiveDict();
 });
 
 Template.pitchInfo.helpers({
-	Pitch() {
-		return this;
-	},
-	dateSelected(){
-		const instance  = Template.instance();
-		return instance.state.get('dateSelected');
+	dateSelectedChanged(){
+		instance  = Template.instance();
+		return instance.state.get('dateSelectedChanged');
 	},
 	startTime() {
 		const instance  = Template.instance();
@@ -64,26 +61,47 @@ Template.pitchInfo.events({
 	'click .time' (event, instance){
 		startTime = event.target.name;
 		endTime = event.target.value;
+		selectedTime.push(startTime);
 		instance.state.set('startTime',startTime);
 		instance.state.set('endTime', endTime);
-
-		instance.state.set('dateSelected', false);
+		var prevSlot = startTime - 1;
+		var nextSlot = parseInt(startTime) + 1;
+		$('button').each(function(){
+			if (selectedTime.includes(prevSlot.toString()) || selectedTime.includes(nextSlot.toString())){
+				//dont disable
+			}	else{
+				//disable
+				$(this).attr('disabled', true);
+			}
+		});
+		if (!unavailable.includes(prevSlot.toString())) {
+			$('[name='+prevSlot+']').attr('disabled',false);
+			$('[name='+prevSlot+']').removeClass('btn-warning');
+			$('[name='+prevSlot+']').addClass('btn-info');
+		} 
+		if (!unavailable.includes(nextSlot.toString())) {
+			$('[name='+nextSlot+']').attr('disabled',false);
+			$('[name='+nextSlot+']').removeClass('btn-warning');
+			$('[name='+nextSlot+']').addClass('btn-info');
+		}
+		console.log(selectedTime);
 	},
 	'click #month-calendar' (event, instance){
+		instance.state.set('dateSelectedChanged', true);
+		instance.state.set('bookDate', bookDate);
+
 		// Get unavailable slot
-		var trans = Transactions.find({pitch_id:Template.parentData(1).fetch()[0]._id, bookDate: bookDate}).fetch();
-		unavailable = []
+		var trans = Transactions.find({pitch_id:Template.parentData(1)._id, bookDate: bookDate}).fetch();
+		unavailable = [];
+		selectedTime = [];
+		$('[disabled=disabled]').attr('disabled', false);
 		trans.forEach(function(item){
 			var time = item.startTime;
 			unavailable.push(time);
 		});
-
-		initTimePanel();
-
-		instance.state.set('bookDate', bookDate);
-		instance.state.set('dateSelected', true);
+		initTimePanel(unavailable);
 	}
-});        
+});
 
 Template.monthCalendar.onRendered(function() {
 	var monthCalendar = $('#month-calendar').fullCalendar({
@@ -97,12 +115,15 @@ Template.monthCalendar.onRendered(function() {
 	    },
 		dayClick: function(date){
 			bookDate = date.format();
-	    $(this).css('background-color', 'red');
+			$('[style="background-color: red;"]').css('background-color','');
+	    	$(this).css('background-color', 'red');
+			
 		}
 	});
 });
 
-function initTimePanel(){
+function initTimePanel(unavailableTime){
+	console.log(unavailableTime);
 	var timeHTML = "";
 	for(row=0; row<6; row++){
 		timeHTML += "<div class='row'>";
@@ -110,9 +131,12 @@ function initTimePanel(){
 			var time = col + 4*row;
 			var mediodia = time < 12 ? "am" : "pm"; 
 			timeHTML += "<div class='col-xs-3'><button class='btn time ";
-			if (unavailable.includes(time.toString())) timeHTML += "btn-default' disabled";
+			
+			if (unavailableTime.includes(time.toString())) timeHTML += "btn-default' disabled";
 			else timeHTML += "btn-warning'";
 
+			timeHTML += "btn-warning'";
+			
 			timeHTML += " name='" + time + "' value='" + (time+1) + "'>" + time%12 + mediodia;
 
 			if(time==11) mediodia = "pm"; 

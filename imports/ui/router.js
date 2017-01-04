@@ -20,7 +20,7 @@ Router.route('/pitch-list/:region', function() {
 Router.route('/pitch-info/:name',{
 	template: 'pitchInfo',
 	data: function() {
-		return Pitches.find({name:this.params.name});
+		return Pitches.find({name:this.params.name}).fetch()[0];
 	}
 });
 
