@@ -1,13 +1,8 @@
 import './pitch-info.html';
-import './navbar.html';
-
 import { Transactions } from '../api/pitches.js';
 
 Template.pitchInfo.helpers({
-	'Pitch': function(){
-		// use 'this' to reference data context 
-		return this;
-	}
+
 });
 
 Template.pitchInfo.events({
@@ -32,14 +27,3 @@ Template.pitchInfo.events({
 	}
 });
 
-Template.navbarPitchInfo.helpers({
-	pitchName(parentData){
-		console.log(parentData.fetch());
-		return parentData.fetch()[0].name;
-	},
-	pitchRegion(parentData){
-		console.log(parentData.fetch());
-		return parentData.fetch()[0].region;
-	},
-
-})

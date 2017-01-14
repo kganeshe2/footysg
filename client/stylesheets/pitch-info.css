@@ -1,0 +1,10 @@
+.pitch-info-container{
+ background-color: grey;
+ height:80vh;
+}
+.pitch-info-title{
+  background-color: yellow;
+}
+.pitch-info-description{
+  background-color: purple;
+}
