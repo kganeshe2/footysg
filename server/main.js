@@ -105,6 +105,21 @@ function createData_Users()
               isBlocked: false
             });
 }
+
+/*function createData_tunavails(){
+  {
+  pitch_id: 5,
+  bookedDate: "2017-01-06",
+  avaTimes : [
+    {values: [{time: 0, ava: true},{time: 1, ava: true},{time: 2, ava: true},{time: 3, ava: true}]},
+    {values: [{time: 4, ava: true},{time: 5, ava: true},{time: 6, ava: true},{time: 7, ava: true}]},
+    {values: [{time: 8, ava: true},{time: 9, ava: true},{time: 10, ava: true},{time: 11, ava: true}]},
+    {values: [{time: 12, ava: true},{time: 15, ava: true},{time: 14, ava: true},{time: 17, ava: true}]},
+    {values: [{time: 16, ava: true},{time: 17, ava: true},{time: 18, ava: true},{time: 19, ava: true}]},
+    {values: [{time: 20, ava: true},{time: 21, ava: true},{time: 22, ava: true},{time: 23, ava: true}]}
+  ]
+}
+}*/
 Meteor.startup(() => {
   // code to run on server at startup
   var totalNumberOfRec_Pitches=Pitches.find().count();

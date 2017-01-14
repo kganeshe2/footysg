@@ -2,6 +2,8 @@ import './pitch-info.html';
 
 
 import { Transactions } from '../api/pitches.js';
+import { Unavailabletimes } from '../api/pitches.js';
+
 import { ReactiveDict } from 'meteor/reactive-dict';
 
 var bookDate=0, startTime=0, endTime=0;
@@ -12,10 +14,6 @@ Template.pitchInfo.onCreated(function(){
 });
 
 Template.pitchInfo.helpers({
-	dateSelectedChanged(){
-		instance  = Template.instance();
-		return instance.state.get('dateSelectedChanged');
-	},
 	startTime() {
 		const instance  = Template.instance();
 		if(instance.state.get('startTime')){
@@ -44,6 +42,7 @@ Template.pitchInfo.helpers({
 
 Template.pitchInfo.events({
 	'click #js-book' (){
+		// Update booking Infomation start
 		var transStatus = Transactions.insert({
 			pitch_id:this._id,
 			user_id:'test_id',
@@ -56,96 +55,35 @@ Template.pitchInfo.events({
 			discountedPrice:,
 			promoCode:,*/
 		});
-		alert("Thank you for the booking, your reference number is " + transStatus);
+		// Update booking information end
+
+		// Upate unava table start
+		// 403 will occur if update by {pitch_id&bookDate}
+		// To refine it server side call
+		var timeslot = Unavailabletimes.find({
+			pitch_id: this._id, 
+			bookedDate: bookDate, 
+			"avaTimes.values.time": parseInt(startTime)
+		}).fetch()[0];
+		row = Math.floor(startTime/4);
+		col = startTime % 4;
+		var setBook = {};
+		setBook["avaTimes."+row+".values."+col+".ava"]=false;
+		var avaStatus = Unavailabletimes.update(
+			{_id: timeslot._id}, 
+			{$set: setBook}
+			);
+		// Update anava table ends
+
+		alert("Thank you for the booking, your reference number is " + transStatus + ": reserved status: " + avaStatus);
 	},
 	'click .time' (event, instance){
 		startTime = event.target.name;
 		endTime = event.target.value;
-		selectedTime.push(startTime);
 		instance.state.set('startTime',startTime);
 		instance.state.set('endTime', endTime);
-		var prevSlot = startTime - 1;
-		var nextSlot = parseInt(startTime) + 1;
-		$('button').each(function(){
-			if (selectedTime.includes(prevSlot.toString()) || selectedTime.includes(nextSlot.toString())){
-				//dont disable
-			}	else{
-				//disable
-				$(this).attr('disabled', true);
-			}
-		});
-		if (!unavailable.includes(prevSlot.toString())) {
-			$('[name='+prevSlot+']').attr('disabled',false);
-			$('[name='+prevSlot+']').removeClass('btn-warning');
-			$('[name='+prevSlot+']').addClass('btn-info');
-		} 
-		if (!unavailable.includes(nextSlot.toString())) {
-			$('[name='+nextSlot+']').attr('disabled',false);
-			$('[name='+nextSlot+']').removeClass('btn-warning');
-			$('[name='+nextSlot+']').addClass('btn-info');
-		}
-		console.log(selectedTime);
 	},
 	'click #month-calendar' (event, instance){
-		instance.state.set('dateSelectedChanged', true);
-		instance.state.set('bookDate', bookDate);
-
-		// Get unavailable slot
-		var trans = Transactions.find({pitch_id:Template.parentData(1)._id, bookDate: bookDate}).fetch();
-		unavailable = [];
-		selectedTime = [];
-		$('[disabled=disabled]').attr('disabled', false);
-		trans.forEach(function(item){
-			var time = item.startTime;
-			unavailable.push(time);
-		});
-		initTimePanel(unavailable);
+		bookDate = event.target.dataset.date;
 	}
 });
-
-Template.monthCalendar.onRendered(function() {
-	var monthCalendar = $('#month-calendar').fullCalendar({
-		header: false,
-		firstDay: 1,
-		aspectRatio: 2,
-		dayRender: function(date, cell){
-			/*if (date < minDate){
-	            $(cell).addClass('fc-other-month');
-	        }*/
-	    },
-		dayClick: function(date){
-			bookDate = date.format();
-			$('[style="background-color: red;"]').css('background-color','');
-	    	$(this).css('background-color', 'red');
-			
-		}
-	});
-});
-
-function initTimePanel(unavailableTime){
-	console.log(unavailableTime);
-	var timeHTML = "";
-	for(row=0; row<6; row++){
-		timeHTML += "<div class='row'>";
-		for(col=0; col<4; col++){
-			var time = col + 4*row;
-			var mediodia = time < 12 ? "am" : "pm"; 
-			timeHTML += "<div class='col-xs-3'><button class='btn time ";
-			
-			if (unavailableTime.includes(time.toString())) timeHTML += "btn-default' disabled";
-			else timeHTML += "btn-warning'";
-
-			timeHTML += "btn-warning'";
-			
-			timeHTML += " name='" + time + "' value='" + (time+1) + "'>" + time%12 + mediodia;
-
-			if(time==11) mediodia = "pm"; 
-			else if(time==23) mediodia = "am";
-
-			timeHTML += " - " + (time%12+1) + mediodia + "</button></div>";
-		}
-
-		timeHTML += "</div>";
-	}
-	$('#time-panel').html(timeHTML);
-}
