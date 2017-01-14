@@ -1,70 +1,89 @@
 import './pitch-info.html';
 
-import { Transactions } from '../api/pitches.js';
 
-var startTime,bookDate;
+import { Transactions } from '../api/pitches.js';
+import { Unavailabletimes } from '../api/pitches.js';
+
+import { ReactiveDict } from 'meteor/reactive-dict';
+
+var bookDate=0, startTime=0, endTime=0;
+var unavailable, selectedTime;
+
+Template.pitchInfo.onCreated(function(){
+	this.state = new ReactiveDict();
+});
 
 Template.pitchInfo.helpers({
-	'Pitch': function(){
-		// use 'this' to reference data context 
-		return this;
+	startTime() {
+		const instance  = Template.instance();
+		if(instance.state.get('startTime')){
+			startTime = instance.state.get('startTime');
+			return startTime;
+		}
+		return "";
+	},
+	bookDate() {
+		const instance  = Template.instance();
+		if(instance.state.get('bookDate')){
+			bookDate = instance.state.get('bookDate');
+			return bookDate;
+		}
+		return "";
+	}, 
+	endTime() {
+		const instance  = Template.instance();
+		if(instance.state.get('endTime')){
+			endTime = instance.state.get('endTime');
+			return endTime;
+		}
+		return "";
 	}
 });
 
 Template.pitchInfo.events({
-	'click #js-book' (event){
+	'click #js-book' (){
+		// Update booking Infomation start
 		var transStatus = Transactions.insert({
 			pitch_id:this._id,
 			user_id:'test_id',
 			bookDate:bookDate,
 			startTime:startTime,
-			endTime:'',
+			endTime:endTime,
 			validity: true,
 			bookAt: new Date(),
 			/*originalPrice:,
 			discountedPrice:,
 			promoCode:,*/
 		});
-		alert("Thank you for the booking, your reference number is " + transStatus);
+		// Update booking information end
+
+		// Upate unava table start
+		// 403 will occur if update by {pitch_id&bookDate}
+		// To refine it server side call
+		var timeslot = Unavailabletimes.find({
+			pitch_id: this._id, 
+			bookedDate: bookDate, 
+			"avaTimes.values.time": parseInt(startTime)
+		}).fetch()[0];
+		row = Math.floor(startTime/4);
+		col = startTime % 4;
+		var setBook = {};
+		setBook["avaTimes."+row+".values."+col+".ava"]=false;
+		var avaStatus = Unavailabletimes.update(
+			{_id: timeslot._id}, 
+			{$set: setBook}
+			);
+		// Update anava table ends
+
+		alert("Thank you for the booking, your reference number is " + transStatus + ": reserved status: " + avaStatus);
+	},
+	'click .time' (event, instance){
+		startTime = event.target.name;
+		endTime = event.target.value;
+		instance.state.set('startTime',startTime);
+		instance.state.set('endTime', endTime);
+	},
+	'click #month-calendar' (event, instance){
+		bookDate = event.target.dataset.date;
 	}
-});
-
-Template.monthCalendar.onRendered(function() {
-		var monthCalendar = $('#month-calendar').fullCalendar({
-			header: false,
-			firstDay: 1,
-			aspectRatio: 2,
-			dayRender: function(date, cell){
-    			/*if (date < minDate){
-		            $(cell).addClass('fc-other-month');
-		        }*/
-		    },
-			dayClick: function(date){
-				bookDate = date.format();
-		        // change the day's background color just for fun
-		        $(this).css('background-color', 'red');
-		        $('#timeCalendar').fadeIn();
-			}
-	});
-});
-
-Template.timeCalendar.onRendered(function(){
-	var timeHTML = "";
-	for(row=0; row<3; row++){
-		timeHTML += "<div class='row time-row no-side-margin'>";
-		for(halfCol=0; halfCol<2; halfCol++){
-			timeHTML += "<div class='col-xs-6'><div class='row'>";
-			for(cell=0; cell<4; cell++){
-				var timeValue = 8*row + 4*halfCol + cell;
-				timeHTML += "<div class='col-xs-3 time-cell'><button type='button' class='time btn btn-warning' data='" + timeValue + "'><span class='cell'>"+timeValue+"</span></button></div>";
-			}
-			timeHTML += "</div></div>";
-		}
-		timeHTML += "</div>";
-	}
-	$('#timeBoxes').html(timeHTML);
-
-	$('.time').click(function(){
-		startTime = $(this).attr("data");
-	});
 });
