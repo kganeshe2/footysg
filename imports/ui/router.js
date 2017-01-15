@@ -4,6 +4,7 @@ import { Pitches } from '../api/pitches.js';
 Router.route('/',{
 	template:'login',
 });
+
 Router.route('/home');
 Router.route('/admin');
 
