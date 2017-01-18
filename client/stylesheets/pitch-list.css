@@ -1,0 +1,13 @@
+.pitch-list-section{
+
+}
+.pitch-list-item-container{
+  background-color:grey;
+}
+.pitch-list-item-title{ 
+  background-color:yellow;
+  height:15vh;
+}
+.pitch-list-item-description{
+  background-color:purple;
+}

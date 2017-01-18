@@ -1,4 +1,5 @@
 import './pitch-info.html';
+import { Transactions } from '../api/pitches.js';
 
 
 import { Transactions } from '../api/pitches.js';
@@ -14,6 +15,7 @@ Template.pitchInfo.onCreated(function(){
 });
 
 Template.pitchInfo.helpers({
+
 	startTime() {
 		const instance  = Template.instance();
 		if(instance.state.get('startTime')){
