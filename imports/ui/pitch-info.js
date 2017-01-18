@@ -1,9 +1,7 @@
 import './pitch-info.html';
 
-
 import { Transactions } from '../api/pitches.js';
 import { Unavailabletimes } from '../api/pitches.js';
-
 import { ReactiveDict } from 'meteor/reactive-dict';
 
 var bookDate=0, startTime=0, endTime=0;
@@ -14,6 +12,7 @@ Template.pitchInfo.onCreated(function(){
 });
 
 Template.pitchInfo.helpers({
+
 	startTime() {
 		const instance  = Template.instance();
 		if(instance.state.get('startTime')){

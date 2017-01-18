@@ -1,0 +1,27 @@
+.home-header-section{ 
+	height: 45vh;
+}
+.home-header-logo{
+  font-size: 3.5em;
+}
+.home-news-row{
+	height: 10vh;
+	background:grey;
+}
+.home-section-row{
+	height: 10vh;
+	background:green;
+}
+.home-region-item{
+	height: 15vh;
+	background-color: yellow;
+}
+.home-region-item{
+	height: 15vh;
+	background-color: yellow;
+}
+
+.home-region-row{
+	height: 5vh;
+	background-color: blue;
+}
