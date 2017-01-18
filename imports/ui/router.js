@@ -46,13 +46,8 @@ Router.route('/pitch-info/:pitchName', function() {
 		}
 	});
 	this.render('pitchInfo',{
-		data:{
-			pitch: Pitches.find({name:this.params.pitchName}).fetch()[0]
-		}
+		data: function() {
+		  return Pitches.find({name:this.params.pitchName}).fetch()[0];
+	  }
 	});
 });
-
-
- // Router.configure({
- //  layoutTemplate: 'appBody',
- // });

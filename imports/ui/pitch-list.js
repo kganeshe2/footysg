@@ -24,6 +24,3 @@ Template.pitchList.events({
 		$('#new_pitch_form').modal('hide');
 	},
 });
-
-
-

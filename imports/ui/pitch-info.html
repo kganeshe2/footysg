@@ -1,25 +1,27 @@
 <template name="pitchInfo">
 	<div class="pitch-info-container col-xs-12 col-md-6 col-md-offset-3">
-		{{#with pitch}}
+		{{#with this}}
 		<div class="pitch-info-title">
 			<h1>{{name}}</h1>
 		</div>	
 		<div class="pitch-info-description">
 			<p>Description: {{description}}</p>
-
 			<p>Address: </p>
-
 			<p>Telephone: </p>
-			
 			<p>Owner: </p>
-
 			<p>Pitch Types: {{pitchTypes}}</p>
-			
 			<p>Facilities: {{facilities}}</p> 
-
 		</div>
-			<button id="js-book">BOOK NOW</button>
-		{{/with}}
-	</div>
-</template>
 
+		{{> amazingTimePicker}}
+
+		<br />
+		<div class="booking-section">
+			<span>{{showDate}}</span> 
+			<span>{{startTime}}</span>
+			<span>{{endTime}}</span>
+			<button class="btn btn-primary" id="js-book">BOOK NOW</button>
+		</div>
+    {{/with}}
+	</div>	
+</template>
