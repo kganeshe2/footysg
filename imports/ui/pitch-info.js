@@ -1,10 +1,7 @@
 import './pitch-info.html';
-import { Transactions } from '../api/pitches.js';
-
 
 import { Transactions } from '../api/pitches.js';
 import { Unavailabletimes } from '../api/pitches.js';
-
 import { ReactiveDict } from 'meteor/reactive-dict';
 
 var bookDate=0, startTime=0, endTime=0;
