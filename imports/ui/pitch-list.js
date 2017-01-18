@@ -1,6 +1,5 @@
 //import { Template } from 'meteor/templating' 
 import { Pitches } from '../api/pitches.js';
-
 import './pitch-list.html';
 
 Template.pitchList.events({
@@ -25,6 +24,3 @@ Template.pitchList.events({
 		$('#new_pitch_form').modal('hide');
 	},
 });
-
-
-

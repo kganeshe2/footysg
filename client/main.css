@@ -1,4 +1,8 @@
 body{
+	-moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    
 	background: #43cea2; 
 	/* For browsers that do not support gradients */
 	/*background: -webkit-linear-gradient(to bottom, #43cea2 , #185a9d);*/
@@ -8,6 +12,7 @@ body{
 	font-size: 20px;
 	font-family: bebasregular; 
 	color: white;
+
 }
 #app-container{
 	background-image: url('img/chrome-iphone6-432x882@2x.jpg');
@@ -27,83 +32,31 @@ body{
 	margin: 0 auto;
 }
 
-@font-face {
-  font-family: 'lorabold';
-  src: url('font/lora-bold-subset.eot');
-  src: url('font/lora-bold-subset.eot?#iefix') format('embedded-opentype'),
-       url('font/lora-bold-subset.woff') format('woff'),
-       url('font/lora-bold-subset.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
+.navbar-home{
+	background-color: transparent;
+	border-color: transparent;
 }
 
-@font-face {
-  font-family: 'lato';
-  src: url('font/lato-regular-webfont.eot');
-  src: url('font/lato-regular-webfont.eot?#iefix') format('embedded-opentype'),
-       url('font/lato-regular-webfont.woff') format('woff'),
-       url('font/lato-regular-webfont.ttf') format('truetype');
-  font-weight: normal;
-  font-weight: 400;
-  font-style: normal;
+.nav-bar{
+	height: 5vh;
+	max-height: 5vh;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 
-@font-face {
-  font-family: 'lato';
-  src: url('font/lato-italic-webfont.eot');
-  src: url('font/lato-italic-webfont.eot?#iefix') format('embedded-opentype'),
-       url('font/lato-italic-webfont.woff') format('woff'),
-       url('font/lato-italic-webfont.ttf') format('truetype');
-  font-weight: normal;
-  font-weight: 400;
-  font-style: italic;
+.navbar-left{
 
 }
-
-@font-face {
-  font-family: 'lato';
-  src: url('font/lato-bold-webfont.eot');
-  src: url('font/lato-bold-webfont.eot?#iefix') format('embedded-opentype'),
-       url('font/lato-bold-webfont.woff') format('woff'),
-       url('font/lato-bold-webfont.ttf') format('truetype');
-  font-weight: bold;
-  font-weight: 700;
-  font-style: normal;
+.navbar-title{
+	height: 5vh;
+	max-height: 5vh;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	vertical-align: middle;
 }
-
-@font-face {
-  font-family: 'lato';
-  src: url('font/lato-black-webfont.eot');
-  src: url('font/lato-black-webfont.eot?#iefix') format('embedded-opentype'),
-       url('font/lato-black-webfont.woff') format('woff'),
-       url('font/lato-black-webfont.ttf') format('truetype');
-  font-weight: 900;
-  font-style: normal;
+.navbar-right{
+	
 }
-
-@font-face {
-	font-family: 'market';
-	src:url('icon/market.eot?-3varwy');
-	src:url('icon/market.eot?#iefix-3varwy') format('embedded-opentype'),
-		url('icon/market.woff?-3varwy') format('woff'),
-		url('icon/market.ttf?-3varwy') format('truetype'),
-		url('icon/market.svg?-3varwy#market') format('svg');
-	font-weight: normal;
-	font-style: normal;
-}
-
-@font-face {
-    font-family: 'bebasregular';
-    src: url('font/BEBAS___-webfont.eot');
-    src: url('font/BEBAS___-webfont.eot?#iefix') format('embedded-opentype'),
-         url('font/BEBAS___-webfont.woff') format('woff'),
-         url('font/BEBAS___-webfont.ttf') format('truetype'),
-         url('font/BEBAS___-webfont.svg#bebasregular') format('svg');
-    font-weight: normal;
-    font-style: normal;
-
-}
-
 
 .flexbox{
 	position: relative;
@@ -111,67 +64,53 @@ body{
 	justify-content: center; /* align horizontal */
 	align-items: center; /* align vertical */	
 }
-.login-logo{
-	margin: auto;
- 	position: absolute;
-  	top: 0; left: 0; bottom: 0; right: 0;
-  	height:200px;
-  	width:80%;
-}
-.login-buttons{
- 	margin: auto;
- 	position: absolute;
-  	top: 75%; left: 0; bottom: 0; right: 0;
-}
-.home-header-section{ 
-	height: 50vh;
-}
-.home-header-logo{
-	background-color: purple;
-  font-size: 3.5em;
-}
-.home-news-section{
-	height: 10vh;
-	background:grey;
-}
-.home-section-title{
-	height: 10vh;
-	background:green;
-}
-.home-region-list{
-	height: 25vh;
-	background-color: yellow;
-}
-.pitch-list-container{
-}
-.pitch-list-item-container{
-  background-color:grey;
-}
-.pitch-list-item-title{ 
-  background-color:yellow;
-  height:15vh;
-}
-.pitch-list-item-description{
-  background-color:purple;
-}
-.pitch-info-container{
- background-color: grey;
- height:80vh;
-}
-.pitch-info-title{
-  background-color: yellow;
-}
-.pitch-info-description{
-  background-color: purple;
-}
-.solid-corners{
-  border-radius:0px;
-}
-
-
 
 /*CSS for Admin Dashboard Starts Here*/
 .usersSection{
   background-color: grey;
 }
 /*CSS for Admin Dashboard Ends Here*/
+
+
+/* Calendar Box CSS Fine Tune Start*/
+#time-calendar{
+  display: none;
+}
+.time-row{
+  padding: 0 0 10px;
+}
+
+.time-cell{
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+.cell{
+  width: 6px;
+  height: 18px;
+}
+
+.no-left-padding{
+  padding-left: 0;
+}
+
+.no-side-padding{
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.no-side-margin{
+  margin-left: 0;
+  margin-right: 0;
+}
+/* Calendar Box CSS Fine Tune End*/
+
+/*Booking Session Start*/
+#js-book{
+  float: right;
+}
+
+#booking-section span{
+  font-size: 12px;
+}
+/*Booking Session End*/
