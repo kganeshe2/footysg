@@ -2,6 +2,7 @@ import { Meteor } from 'meteor/meteor';
 
 // import database from mongo
 import '../imports/api/pitches.js';
+import '../imports/api/transactions.js';
 import { Pitches } from '../imports/api/pitches.js';
 import { Users } from '../imports/api/pitches.js';
 //Pitches.insert({ _id=1,name: "Ganesh", description: "Test Description", region: "Central" });

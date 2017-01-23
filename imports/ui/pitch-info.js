@@ -1,7 +1,7 @@
 import './pitch-info.html';
 
-import { Transactions } from '../api/pitches.js';
-import { Unavailabletimes } from '../api/pitches.js';
+import { Transactions } from '../api/transactions.js';
+import { Unavailabletimes } from '../api/transactions.js';
 import { ReactiveDict } from 'meteor/reactive-dict';
 
 // To pender over value type
@@ -11,6 +11,8 @@ let endTime = 0;
 
 Template.pitchInfo.onCreated(function newPitchInfo() {
   this.state = new ReactiveDict();
+  this.subscribe('tunavails', Template.currentData().pitch._id);
+  this.subscribe('transactions', Template.currentData().pitch._id);
 });
 
 Template.pitchInfo.helpers({
@@ -44,7 +46,7 @@ Template.pitchInfo.events({
   'click #js-book'() {
     // Check if the transactions exists
     const trans = Transactions.find({
-      pitch_id: Template.currentData()._id,
+      pitch_id: Template.currentData().pitch._id,
       user_id: 'test_id',
       bookDate: bookDate,
       startTime: startTime,
