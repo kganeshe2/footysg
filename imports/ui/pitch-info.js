@@ -1,8 +1,9 @@
+// eslint-disable-next-line
+import { ReactiveDict } from 'meteor/reactive-dict';
+
 import './pitch-info.html';
 
-import { Transactions } from '../api/transactions.js';
-import { Unavailabletimes } from '../api/transactions.js';
-import { ReactiveDict } from 'meteor/reactive-dict';
+import { Transactions, Unavailabletimes } from '../api/transactions.js';
 
 // To pender over value type
 let bookDate = 0;
