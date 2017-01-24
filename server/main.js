@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { Meteor } from 'meteor/meteor';
 
 // import database from mongo
@@ -133,15 +134,13 @@ function createData_Users()
 }*/
 Meteor.startup(() => {
   // code to run on server at startup
-  var totalNumberOfRec_Pitches=Pitches.find().count();
-  var totalNumberOfRec_Users=Users.find().count();
+  const totalNumberOfRecPitches = Pitches.find().count();
+  const totalNumberOfRecUsers = Users.find().count();
 
-  if(totalNumberOfRec_Pitches<1)
-  {
-  	createData_Pitches();
+  if (totalNumberOfRecPitches < 1) {
+    createData_Pitches();
   }
-  if(totalNumberOfRec_Users<1)
-  {
+  if (totalNumberOfRecUsers < 1) {
     createData_Users();
   }
- });
+});

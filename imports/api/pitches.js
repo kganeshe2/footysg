@@ -1,3 +1,5 @@
+// 'meteor' is defualt run-time dependency
+// eslint-disable-next-line
 import { Mongo } from 'meteor/mongo';
 
 export const Pitches = new Mongo.Collection('pitches');

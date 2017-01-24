@@ -47,7 +47,8 @@ Template.amazingTimePicker.events({
 });
 
 Template.amazingTimePicker.onRendered(function renderedPicker() {
-  const monthCalendar = $('#month-calendar').fullCalendar({
+  // const monthCalendar =
+  $('#month-calendar').fullCalendar({
     header: false,
     firstDay: 1,
     aspectRatio: 2,
