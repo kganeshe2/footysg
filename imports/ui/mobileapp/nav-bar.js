@@ -1,5 +1,6 @@
-//test
-Template.navBar.events({
+import './nav-bar.html';
+
+Template.navbar.events({
 	'click .glyphicon-menu-left': function(){
 		history.back();
 	},
@@ -16,7 +17,7 @@ Template.navBar.events({
 });
 
 
-Template.navBar.helpers({
+Template.navbar.helpers({
 	menuState: function(){
 		return Session.get('menuState')
 	},

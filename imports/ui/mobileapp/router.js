@@ -1,31 +1,30 @@
-// import { Template } from 'meteor/templating' 
-import { Pitches } from '../api/pitches.js';
+import { Pitches } from '/imports/api/pitches.js';
 
-Router.route('/',{
+import './amazing-time-picker.js';
+import './home.js';
+import './login.js';
+import './nav-bar.js';
+import './pitch-info.js';
+import './pitch-list.js';
+
+
+Router.route('/login',{
 	template:'login',
 });
 
 Router.route('/home', function(){
-	this.layout('navBar', {
+	this.layout('navbar', {
 		data:{
 			currentPath: this.params.region,
 			home: true,
-			navbarhome: 'navbar-fixed-top navbar-home'
+			navbarhome: 'navbar-home'
 		}
 	});
 	this.render('home');
 });
 
-Router.route('/admin/:ownerName', function() {
-	this.render('admin',{
-		data:{
-			owner: Pitches.find({owner:this.params.ownerName}).fetch()[0]
-		}
-	});
-});
-
 Router.route('/pitch-list/:region', function() {
-	this.layout('navBar', {
+	this.layout('navbar', {
 		data:{
 			currentPath: this.params.region,
 		}
@@ -40,7 +39,7 @@ Router.route('/pitch-list/:region', function() {
 });
 
 Router.route('/pitch-info/:pitchName', function() {
-	this.layout('navBar', {
+	this.layout('navbar', {
 		data:{
 			currentPath: this.params.pitchName
 		}
@@ -51,3 +50,6 @@ Router.route('/pitch-info/:pitchName', function() {
 	  }
 	});
 });
+
+
+

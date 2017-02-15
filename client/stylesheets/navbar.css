@@ -1,8 +1,33 @@
 
-.navbar{
-	border-radius: 0px;
+.nav-bar-home{
+    background-color: transparent;
+    border-color: transparent;
 }
 
+.nav-bar{
+    height: 8vh;
+    width: 100%;
+    background-color: transparent;
+    position: absolute;
+    top:0px;
+    z-index: 999;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-bar-left{
+    width:10%;
+    padding-left:5%;
+}
+.nav-bar-title{
+    text-align: center;
+}
+.nav-bar-right{
+    width:10%;
+}
 /* The side navigation menu */
 .sidenav {
     height: 100%; /* 100% Full-height */

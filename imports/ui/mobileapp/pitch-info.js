@@ -1,9 +1,7 @@
 import './pitch-info.html';
-// import { Transactions } from '../api/pitches.js';
 
-
-import { Transactions } from '../api/pitches.js';
-import { Unavailabletimes } from '../api/pitches.js';
+import { Transactions } from '/imports/api/pitches.js';
+import { Unavailabletimes } from '/imports/api/pitches.js';
 
 import { ReactiveDict } from 'meteor/reactive-dict';
 

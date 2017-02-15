@@ -1,6 +1,6 @@
 import './amazing-time-picker.html';
 
-import { Unavailabletimes } from '../api/pitches.js';
+import { Unavailabletimes } from '/imports/api/pitches.js';
 
 Template.amazingTimePicker.onCreated(function(){
 	this.state = new ReactiveDict();
