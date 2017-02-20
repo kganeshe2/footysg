@@ -7,17 +7,30 @@ import './nav-bar.js';
 import './pitch-info.js';
 import './pitch-list.js';
 
+import './menuitems/payment.js';
+import './menuitems/account.js';
+import './menuitems/games.js';
 
+
+Router.route('/payment',{
+	template:'payment',
+});
+Router.route('/account',{
+	template:'account',
+});
+Router.route('/games',{
+	template:'games',
+});
 Router.route('/login',{
 	template:'login',
 });
+
 
 Router.route('/home', function(){
 	this.layout('navbar', {
 		data:{
 			currentPath: this.params.region,
 			home: true,
-			navbarhome: 'navbar-home'
 		}
 	});
 	this.render('home');
