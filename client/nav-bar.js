@@ -12,8 +12,22 @@ Template.navBar.events({
 		Session.set('menuState', 'menu-closed');
 		Session.set('homeBodyState', 'home-body-unpushed');
 	    console.log("close sesame");
-	}	
+	},
+	'click .log-out': function(){
+        event.preventDefault();
+        Meteor.logout();
+        Router.go('/');
+    }	
 });
+
+Template.navBar.rendered = function() {
+    if(!this._rendered) 
+    {
+      this._rendered = true;
+      Session.set('menuState', 'menu-closed');
+	  Session.set('homeBodyState', 'home-body-unpushed'); 
+    }	
+}
 
 
 Template.navBar.helpers({

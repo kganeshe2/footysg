@@ -1,5 +1,7 @@
 // import { Template } from 'meteor/templating' 
 import { Pitches } from '../api/pitches.js';
+import { login } from '../ui/login.js';
+
 
 Router.route('/',{
 	template:'login',
