@@ -25,3 +25,5 @@ fullcalendar:fullcalendar
 session@1.1.7
 
 reactive-dict@1.1.8
+accounts-facebook
+service-configuration
