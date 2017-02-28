@@ -1,5 +1,6 @@
-//test
+// Hamburger-Arrow Navigation Bar
 Template.navBar.events({
+
 	'click .glyphicon-menu-left': function(){
 		history.back();
 	},
@@ -29,13 +30,11 @@ Template.navBar.rendered = function() {
     }	
 }
 
-
 Template.navBar.helpers({
-	menuState: function(){
-		return Session.get('menuState')
-	},
-	homeBodyState: function(){
-		return Session.get('homeBodyState')
-	}
+  menuState: function getMenuState() {
+    return Session.get('menuState');
+  },
+  homeBodyState: function getHomeBodyState() {
+    return Session.get('homeBodyState');
+  },
 });
-

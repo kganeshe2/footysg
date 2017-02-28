@@ -1,13 +1,20 @@
+/* eslint-disable */
 import { Meteor } from 'meteor/meteor';
 
 // import database from mongo
 import '../imports/api/pitches.js';
+
 import { pitches } from '../imports/api/pitches.js';
 import { region } from '../imports/api/pitches.js';
 import { hourlyPriceByDay } from '../imports/api/pitches.js';
 import { futsalPark } from '../imports/api/pitches.js';
 import { game } from '../imports/api/pitches.js';
 import { users } from '../imports/api/pitches.js';
+
+import '../imports/api/transactions.js';
+import { Pitches } from '../imports/api/pitches.js';
+import { Users } from '../imports/api/pitches.js';
+
 //Pitches.insert({ _id=1,name: "Ganesh", description: "Test Description", region: "Central" });
 function createData_Pitches()
 { //Creating Pitches for Central region
@@ -337,6 +344,7 @@ function createData_game()
 
 Meteor.startup(() => {
   // code to run on server at startup
+
   if(pitches.find().count()<1)
   {
   	createData_Pitches();
