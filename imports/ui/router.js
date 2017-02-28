@@ -1,5 +1,5 @@
 // import { Template } from 'meteor/templating'
-import { Pitches } from '../api/pitches.js';
+import { pitches } from '../api/pitches.js';
 import { login } from '../ui/login.js';
 
 
@@ -22,7 +22,7 @@ Router.route('/admin/:ownerName', function routeAdmin() {
   this.subscribe('admin', this.params.ownerName);
   this.render('admin', {
     data: {
-      owner: Pitches.find().fetch()[0],
+      owner: pitches.find().fetch()[0],
     },
   });
 });
@@ -38,7 +38,7 @@ Router.route('/pitch-list/:region', function routeList() {
     // set data context of current URL
     data: {
       thisRegion: this.params.region,
-      pitchList: Pitches.find(),
+      pitchList: pitches.find(),
     },
   });
 });
@@ -49,7 +49,7 @@ Router.route('/pitch-info/:pitchName', function routePitch() {
     this.layout('navBar', {
       data: {
         currentPath: this.params.pitchName,
-        pitch: Pitches.find().fetch()[0],
+        pitch: pitches.find().fetch()[0],
       },
     });
     this.render('pitchInfo');
