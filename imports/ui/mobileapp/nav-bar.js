@@ -1,4 +1,6 @@
 // Hamburger-Arrow Navigation Bar
+import './nav-bar.html';
+
 Template.navBar.events({
 
 	'click .glyphicon-menu-left': function(){
@@ -7,11 +9,19 @@ Template.navBar.events({
 	'click .glyphicon-menu-hamburger': function(){
 		Session.set('menuState', 'menu-open');
 		Session.set('homeBodyState', 'home-body-pushed');
+		Session.set('navBarState', 'nav-bar-hide');
 		console.log("open sesame");
 	},
-	'click .closebtn': function(){
+	'click .closearea': function(){
 		Session.set('menuState', 'menu-closed');
 		Session.set('homeBodyState', 'home-body-unpushed');
+		Session.set('navBarState', 'nav-bar-unhide');
+	    console.log("close sesame");
+	},
+	'click .home-body-pushed': function(){
+		Session.set('menuState', 'menu-closed');
+		Session.set('homeBodyState', 'home-body-unpushed');
+		Session.set('navBarState', 'nav-bar-unhide');
 	    console.log("close sesame");
 	},
 	'click .log-out': function(){
@@ -36,5 +46,8 @@ Template.navBar.helpers({
   },
   homeBodyState: function getHomeBodyState() {
     return Session.get('homeBodyState');
+  },
+  navBarState: function getBarState(){
+    return Session.get('navBarState')
   },
 });

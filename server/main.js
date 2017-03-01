@@ -2,55 +2,55 @@
 import { Meteor } from 'meteor/meteor';
 
 // import database from mongo
-import '../imports/api/pitches.js';
+import '/imports/api/pitches.js';
 
-import { pitches } from '../imports/api/pitches.js';
-import { region } from '../imports/api/pitches.js';
-import { hourlyPriceByDay } from '../imports/api/pitches.js';
-import { futsalPark } from '../imports/api/pitches.js';
-import { game } from '../imports/api/pitches.js';
-import { users } from '../imports/api/pitches.js';
+import { region } from '/imports/api/pitches.js';
+import { hourlyPriceByDay } from '/imports/api/pitches.js';
+import { futsalPark } from '/imports/api/pitches.js';
+import { game } from '/imports/api/pitches.js';
+import { users } from '/imports/api/pitches.js';
 
-import '../imports/api/transactions.js';
-import { Pitches } from '../imports/api/pitches.js';
-import { Users } from '../imports/api/pitches.js';
+import '/imports/api/transactions.js';
+import { Pitches } from '/imports/api/pitches.js';
+import { Users } from '/imports/api/pitches.js';
 
 //Pitches.insert({ _id=1,name: "Ganesh", description: "Test Description", region: "Central" });
+
 function createData_Pitches()
 { //Creating Pitches for Central region
-	pitches.insert({_id:"P1",
+	Pitches.insert({_id:"P1",
                   name: "Bishan Stadium Soccer Pitch", 
                   description: "Located in the Central, Bishan Stadium is a mere 10 mins walk away from Bishan MRT, which has both Circle Line as well as North-South Line. Despite the easy accessibility to Bishan Stadium, the field is in poor condition. The green of the grass has faded, leaving empty patches around the field. The field is sandy and there are presence of potholes. Due to the uneven ground, some parts of the fields are hard while others are soft. Hopefully, there would be some maintenance of the field soon.", 
                   size: ["5v5"],
                   hourlyPriceByDay: ["H1","H2","H3","H4"],
                   games: [""]
                   });
-  pitches.insert({_id:"P2",
+  Pitches.insert({_id:"P2",
   				        name: "First Toa Pa Yoh Secondary School Soccer Pitch", 
                   description: "First Toa Pa Yoh Secondary School Soccer Field is of appropriate size and boasts artificial turf. On top of these, it is very well maintained and in good condition. There are also many parking lots available nearby at the various HDB. Located close to the popular Toa Pa Yoh HDB Hub, it is indeed a good place for some football.",
                   size: ["6v6"],
                   hourlyPriceByDay: ["H1","H2","H3","H4"],
                   games: [""]});
-  pitches.insert({_id:"P3",
+  Pitches.insert({_id:"P3",
   				        name: "Toa Pa Yoh Stadium", 
                   description: "NA", 
 				          size: ["5v5"],
                   hourlyPriceByDay: ["H1","H2"],
                   games: [""]});
-	pitches.insert({_id:"P4",
+	Pitches.insert({_id:"P4",
 				          name: "Braddell Pitch 1 & 2", 
                   description: "While Braddell Pitch 1 & 2 may be convenient – 5 minutes walk away from Braddell MRT Station – there are few or no nearby facilities and amenities, with the closest ones being one MRT Station away. Also, while it is only a 5 minutes walk away from Braddel MRT Station, the Braddell Pitch 1 & 2 may be a bit tough to find.On the good side, Braddell Pitch 1 & 2 are of the appropriate sizes for 11-a-side football and the field is pretty well maintained with minimal brown patches. Goal posts are also available.",
                   size: ["7v7"],
                   hourlyPriceByDay: ["H1","H2"],
                   games: [""] });
   //Creating Pitches for North region
-  pitches.insert({_id:"P5",
+  Pitches.insert({_id:"P5",
   				        name: "Hiding Place Pitch 1 & 2", 
                   description: "Terror Club",
                   size: ["5v5"],
                   hourlyPriceByDay: ["H3","H4"],
                   games: [""] });
-  pitches.insert({_id:"P6",
+  Pitches.insert({_id:"P6",
   				        name: "Woodlands Stadium", 
                   description: "NA", 
                   size: ["6v6"],
@@ -58,13 +58,13 @@ function createData_Pitches()
                   games: [""] });
 
   //Creating Pitches for East region
-  pitches.insert({_id:"P7",
+  Pitches.insert({_id:"P7",
   				        name: "Sports Planet ECP", 
                   description: "NA", 
                   size: ["5v5"],
                   hourlyPriceByDay: ["H5","H6"],
                   games: [""] });
-  pitches.insert({id:"P8",
+  Pitches.insert({id:"P8",
   				        name: "Safra Tampines", 
                   description: "NA", 
                   size: ["7v7"],
@@ -72,13 +72,13 @@ function createData_Pitches()
                   games: [""] });
 
     //Creating Pitches for West region
-  pitches.insert({_id:"P9",
+  Pitches.insert({_id:"P9",
   				        name: "Yusof Ishak Secondary School Soccer Pitch", 
                   description: "NA", 
                   size: ["5v5"],
                   hourlyPriceByDay: ["H1","H2","H3","H4","H5","H6"],
                   games: [""] });
-  pitches.insert({_id:"P10",
+  Pitches.insert({_id:"P10",
   				        name: "Tanglin Trust School Soccer Pitch", 
                   description: "NA", 
                   size: ["7v7"],
@@ -345,7 +345,7 @@ function createData_game()
 Meteor.startup(() => {
   // code to run on server at startup
 
-  if(pitches.find().count()<1)
+  if(Pitches.find().count()<1)
   {
   	createData_Pitches();
   }
@@ -377,3 +377,4 @@ ServiceConfiguration.configurations.insert({
     appId: '1185783001529445',
     secret: '1df4ab3ed6289a2334a7804ded934442'
 });
+

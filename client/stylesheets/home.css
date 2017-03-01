@@ -1,5 +1,7 @@
 .home-header-section{ 
 	height: 45vh;
+	background-color: pink;
+	color:black;
 }
 .home-header-logo{
   font-size: 3.5em;

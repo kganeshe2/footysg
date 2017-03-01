@@ -1,6 +1,6 @@
 import './amazing-time-picker.html';
 
-import { Unavailabletimes } from '../api/transactions.js';
+import { Unavailabletimes } from '/imports/api/transactions.js';
 
 function constructData(pitchId, bookedDate) {
   const data = {};
