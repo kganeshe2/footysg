@@ -96,10 +96,3 @@
     transform: translate3d(0px, 0px, 0px);
 }
 
-.nav-bar-hide{
-    display: none;
-}
-.nav-bar-unhide{
-    display: flex;
-}
-

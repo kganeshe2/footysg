@@ -25,13 +25,12 @@ Router.route('/login', {
 	template:'login',
 });
 
-
 Router.route('/home', function routeHome() {
 	this.layout('navBar', {
 		data:{
 			currentPath: this.params.region,
 			home: true,
-      navbarhome: 'navbar-fixed-top navbar-home',
+      		navbarhome: 'navbar-fixed-top navbar-home',
 		}
 	});
 	this.render('home');
