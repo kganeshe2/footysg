@@ -39,7 +39,7 @@ Router.route('/home', function routeHome(){
 
 Router.route('/pitch-list/:region', function routeList() {
 	this.subscribe('pitches', this.params.region);
-  this.layout('navBar', {
+  	this.layout('navBar', {
 		data:{
 			currentPath: this.params.region,
 		}
@@ -55,7 +55,7 @@ Router.route('/pitch-list/:region', function routeList() {
 
 Router.route('/pitch-info/:pitchName', function routePitch() {
 	this.subscribe('pitch', this.params.pitchName).wait();
-  if (this.ready()) {
+  	if (this.ready()) {
     this.layout('navBar', {
       data:{
         currentPath: this.params.pitchName,
