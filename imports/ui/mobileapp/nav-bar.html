@@ -34,5 +34,20 @@
 	<div class="home-body {{homeBodyState}}">
 		{{>yield}}
 	</div>
+
+	<!--div id="mySidenav" class="sidenav {{menuState}}">
+	<div style="width:250px">
+	  <a href="#" class="closebtn">&times;</a>
+	   {{#if currentUser}}
+        Welcome <strong>{{currentUser.services.facebook.first_name}}</strong>
+       {{/if}}
+	  <a href="#">My Account</a>
+	  <a href="#">My Games</a>
+	  <a href="#">Help & Support</a>
+	  {{#if currentUser}}
+	  <a href="#" class='log-out'>Logout</a>
+	  {{/if}}
+	  </div>
+	</div-->
 </template>
 
