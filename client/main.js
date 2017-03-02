@@ -1,4 +1,4 @@
-// MOBILE APP IMPORTS 
+// MOBILE APP IMPORTS
 import '/imports/ui/mobileapp/router.js';
 
 // ADMIN CONSOLE IMPORTS

@@ -26,18 +26,20 @@ Router.route('/login',{
 });
 
 
-Router.route('/home', function(){
+Router.route('/home', function routeHome(){
 	this.layout('navbar', {
 		data:{
 			currentPath: this.params.region,
 			home: true,
+      navbarhome: 'navbar-fixed-top navbar-home',
 		}
 	});
 	this.render('home');
 });
 
-Router.route('/pitch-list/:region', function() {
-	this.layout('navbar', {
+Router.route('/pitch-list/:region', function routeList() {
+	this.subscribe('pitches', this.params.region);
+  this.layout('navbar', {
 		data:{
 			currentPath: this.params.region,
 		}
@@ -45,24 +47,34 @@ Router.route('/pitch-list/:region', function() {
 	this.render('pitchList',{
 		// set data context of current URL
 		data:{
-			thisRegion: this.params.region, 
-			pitchList: Pitches.find({region:this.params.region})
+			thisRegion: this.params.region,
+			pitchList: Pitches.find(),
 		}
 	});
 });
 
-Router.route('/pitch-info/:pitchName', function() {
-	this.layout('navbar', {
-		data:{
-			currentPath: this.params.pitchName
-		}
-	});
-	this.render('pitchInfo',{
-		data: function() {
-		  return Pitches.find({name:this.params.pitchName}).fetch()[0];
-	  }
-	});
+Router.route('/pitch-info/:pitchName', function routePitch() {
+	this.subscribe('pitch', this.params.pitchName).wait();
+  if (this.ready()) {
+    this.layout('navbar', {
+      data:{
+        currentPath: this.params.pitchName,
+        pitch: Pitches.find().fetch()[0],
+      },
+    });
+    this.render('pitchInfo');
+  } else {
+    console.log('retrieving pitch info ...');
+  }
 });
 
-
-
+/*
+Router.onBeforeAction(function onBefore() {
+  if (!this.ready()) {
+    console.log('retrieving data ...');
+  } else {
+    console.log('next');
+    this.next();
+  }
+});
+*/

@@ -1,6 +1,8 @@
+// Hamburger-Arrow Navigation Bar
 import './nav-bar.html';
 
-Template.navbar.events({
+Template.navBar.events({
+
 	'click .glyphicon-menu-left': function(){
 		history.back();
 	},
@@ -21,19 +23,31 @@ Template.navbar.events({
 		Session.set('homeBodyState', 'home-body-unpushed');
 		Session.set('navBarState', 'nav-bar-unhide');
 	    console.log("close sesame");
-	}	
+	},
+	'click .log-out': function(){
+        event.preventDefault();
+        Meteor.logout();
+        Router.go('/');
+    }	
 });
 
+Template.navBar.rendered = function() {
+    if(!this._rendered) 
+    {
+      this._rendered = true;
+      Session.set('menuState', 'menu-closed');
+	  Session.set('homeBodyState', 'home-body-unpushed'); 
+    }	
+}
 
-Template.navbar.helpers({
-	menuState: function(){
-		return Session.get('menuState')
-	},
-	homeBodyState: function(){
-		return Session.get('homeBodyState')
-	},
-	navBarState: function(){
-		return Session.get('navBarState')
-	},
+Template.navBar.helpers({
+  menuState: function getMenuState() {
+    return Session.get('menuState');
+  },
+  homeBodyState: function getHomeBodyState() {
+    return Session.get('homeBodyState');
+  },
+  navBarState: function getBarState(){
+    return Session.get('navBarState')
+  },
 });
-

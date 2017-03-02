@@ -11,6 +11,9 @@
 			FootySG 
 		</div>
 	</div>
+	 {{#if currentUser}}
+        Welcome <strong>{{currentUser.services.facebook.first_name}}</strong>
+    {{/if}}
 </template>
 
 <template name="homeNews">
