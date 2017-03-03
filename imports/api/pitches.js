@@ -4,13 +4,13 @@ import { Mongo } from 'meteor/mongo';
 
 export const Pitches = new Mongo.Collection('pitches');
 
-export const region = new Mongo.Collection('region');
+export const Regions = new Mongo.Collection('region');
 
-export const hourlyPriceByDay = new Mongo.Collection('hourlyPriceByDay');
+export const HourlyPrice = new Mongo.Collection('hourlyPriceByDay');
 
-export const futsalPark = new Mongo.Collection('futsalPark');
+export const FutsalParks = new Mongo.Collection('futsalPark');
 
-export const game = new Mongo.Collection('game');
+export const Games = new Mongo.Collection('game');
 
 export const Users = new Mongo.Collection('loginUsers');
 
