@@ -26,11 +26,11 @@ Router.route('/login', {
 });
 
 Router.route('/home', function routeHome() {
-	this.layout('navBar', {
-		data:{
-			currentPath: this.params.region,
-			home: true,
-      		navbarhome: 'navbar-fixed-top navbar-home',
+  this.layout('navBar', {
+    data: {
+      currentPath: this.params.region,
+      home: true,
+      navbarhome: 'navbar-fixed-top navbar-home',
 		}
 	});
 	this.render('home');
@@ -38,16 +38,21 @@ Router.route('/home', function routeHome() {
 
 Router.route('/pitch-list/:region', function routeList() {
 	this.subscribe('pitches', this.params.region);
+<<<<<<< HEAD
   	this.layout('navBar', {
 		data:{
+=======
+  this.layout('navBar', {
+		data: {
+>>>>>>> pandaxfly/master
 			currentPath: this.params.region,
 		}
 	});
-	this.render('pitchList',{
+	this.render('pitchList', {
 		// set data context of current URL
-		data:{
-			thisRegion: this.params.region,
-			pitchList: Pitches.find(),
+		data: {
+	     thisRegion: this.params.region,
+			 pitchList: Pitches.find(),
 		}
 	});
 });
@@ -56,7 +61,7 @@ Router.route('/pitch-info/:pitchName', function routePitch() {
 	this.subscribe('pitch', this.params.pitchName).wait();
   	if (this.ready()) {
     this.layout('navBar', {
-      data:{
+      data: {
         currentPath: this.params.pitchName,
         pitch: Pitches.find().fetch()[0],
       },
