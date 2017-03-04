@@ -38,13 +38,8 @@ Router.route('/home', function routeHome() {
 
 Router.route('/pitch-list/:region', function routeList() {
 	this.subscribe('pitches', this.params.region);
-<<<<<<< HEAD
   	this.layout('navBar', {
 		data:{
-=======
-  this.layout('navBar', {
-		data: {
->>>>>>> pandaxfly/master
 			currentPath: this.params.region,
 		}
 	});
