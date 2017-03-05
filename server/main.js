@@ -192,6 +192,104 @@ function createData_FutsalParksDocument()
                       region: "R4",
                       owner: ""
                      });
+  FutsalParks.insert({
+                      "_id" : "f89Q6rbCZ6Fvy5CJS",
+                      "name" : "North Futsal Park 1",
+                      "description" : "This is North Futsal Park 1",
+                      "pitches" : [
+                        {
+                          "name" : "NFP1: Pitch 1",
+                          "description" : "North Futsal Park 1 Pitch 1",
+                          "size" : "5v5",
+                          "hourlyPriceByDay" : [
+                            {
+                              "day" : "Monday",
+                              "price" : 90
+                            },
+                            {
+                              "day" : "Tuesday",
+                              "price" : 90
+                            },
+                            {
+                              "day" : "Tuesday",
+                              "price" : 90
+                            },
+                            {
+                              "day" : "Tuesday",
+                              "price" : 90
+                            },
+                            {
+                              "day" : "Tuesday",
+                              "price" : 90
+                            },
+                            {
+                              "day" : "Tuesday",
+                              "price" : 90
+                            }
+                          ],
+                          "promoPricebyDate" : [ ],
+                          "games" : [
+                            {
+                              "day" : "Monday",
+                              "time" : 1100,
+                              "price" : 90
+                            },
+                            {
+                              "day" : "Monday",
+                              "time" : 1200,
+                              "price" : 90
+                            }
+                          ]
+                        },
+                        {
+                          "name" : "NFP1: Pitch 2",
+                          "description" : "North Futsal Park 1 Pitch 2",
+                          "size" : "5v5",
+                          "hourlyPriceByDay" : [
+                            {
+                              "day" : "Monday",
+                              "price" : 90
+                            },
+                            {
+                              "day" : "Tuesday",
+                              "price" : 90
+                            },
+                            {
+                              "day" : "Tuesday",
+                              "price" : 90
+                            },
+                            {
+                              "day" : "Tuesday",
+                              "price" : 90
+                            },
+                            {
+                              "day" : "Tuesday",
+                              "price" : 90
+                            },
+                            {
+                              "day" : "Tuesday",
+                              "price" : 90
+                            }
+                          ],
+                          "promoPricebyDate" : [ ],
+                          "games" : [
+                            {
+                              
+                            }
+                          ]
+                        }
+                      ],
+                      "pitchSizes" : [
+                        "5v5",
+                        "7v7"
+                      ],
+                      "facilities" : [
+                        "shower",
+                        "parking"
+                      ],
+                      "region" : "R2",
+                      "owner" : "northOwner"
+                    });
 }
 
 function createData_Users()
