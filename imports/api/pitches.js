@@ -11,8 +11,6 @@ export const HourlyPrice = new Mongo.Collection('hourlyPriceByDay');
 
 export const FutsalParks = new Mongo.Collection('futsalPark');
 
-export const Games = new Mongo.Collection('game');
-
 export const Users = new Mongo.Collection('loginUsers');
 
 

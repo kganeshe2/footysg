@@ -1,4 +1,5 @@
-import { Regions, FutsalParks, Pitches } from '/imports/api/pitches.js';
+import { Regions, FutsalParks} from '/imports/api/pitches.js';
+import { Games } from '/imports/api/games.js';
 
 import './amazing-time-picker.js';
 import './home.js';
@@ -15,19 +16,35 @@ import './menuitems/games.js';
 Router.route('/payment', {
   template:'payment',
 });
+
 Router.route('/account', {
   template:'account',
 });
+
 Router.route('/games', {
   template:'games',
+  data: {
+        games: Games.find({}, {sort: {date: -1}}),
+      },
+  subscriptions: function() {
+    this.subscribe('gamesByUser', "Mellavin").wait();
+  },
+  action: function () {
+    if (this.ready()) {
+      this.render();
+    } else {
+      console.log('loading user games ...')
+    }
+  },
 });
+
 Router.route('/login', {
   template:'login',
 });
 
 Router.route('/home', function routeHome() {
   this.subscribe('regions', this.params.region).wait();
-  if(this.ready()){
+  if(this.ready()) {
     this.layout('navBar', {
       data: {
         currentPath: Regions.find(),

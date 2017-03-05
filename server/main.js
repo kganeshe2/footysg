@@ -4,13 +4,15 @@ import { Meteor } from 'meteor/meteor';
 // import database from mongo
 import '/imports/api/pitches.js';
 import '/imports/api/transactions.js';
+import '/imports/api/games.js';
 
 import { Regions } from '/imports/api/pitches.js';
 import { HourlyPrice } from '/imports/api/pitches.js';
 import { FutsalParks } from '/imports/api/pitches.js';
-import { Games } from '/imports/api/pitches.js';
 import { Pitches } from '/imports/api/pitches.js';
 import { Users } from '/imports/api/pitches.js';
+
+import { Games } from '/imports/api/games.js';
 
 //Pitches.insert({ _id=1,name: "Ganesh", description: "Test Description", region: "Central" });
 
@@ -328,47 +330,51 @@ function createData_Game()
    Games.insert({_id:"G1",
         futsalPark:"FP1",
         futsalPitch:"P1",
-        date:"2017-03-01",
-        startTime:"0800",
-        endTime:"0900",
+        date:"2017-03-02",
+        startTime:"0900",
+        endTime:"1000",
         noOfHours:"1",
         hourlyPrice:"H4",
         promoPrice:"",
         bookedPrice:"",
-        owner:""});
+        owner:"",
+        bookedBy:"Mellavin"});
    Games.insert({_id:"G2",
         futsalPark:"FP1",
         futsalPitch:"P2",
         date:"2017-03-01",
-        startTime:"0800",
-        endTime:"0900",
+        startTime:"1800",
+        endTime:"1900",
         noOfHours:"1",
         hourlyPrice:"H4",
         promoPrice:"",
         bookedPrice:"",
-        owner:""});
+        owner:"",
+        bookedBy:"Mellavin"});
    Games.insert({_id:"G3",
         futsalPark:"FP2",
         futsalPitch:"P3",
         date:"2017-03-15",
-        startTime:"0800",
-        endTime:"0900",
+        startTime:"1900",
+        endTime:"2000",
         noOfHours:"1",
         hourlyPrice:"H4",
         promoPrice:"",
         bookedPrice:"",
-        owner:""});
+        owner:"",
+        bookedBy:"Mellavin"});
    Games.insert({_id:"G4",
         futsalPark:"FP2",
         futsalPitch:"P4",
         date:"2017-03-15",
-        startTime:"0800",
-        endTime:"0900",
+        startTime:"1300",
+        endTime:"1400",
         noOfHours:"1",
         hourlyPrice:"H4",
         promoPrice:"",
         bookedPrice:"",
-        owner:""});
+        owner:"",
+        bookedBy:"Mellavin"});
    Games.insert({_id:"G5",
         futsalPark:"FP3",
         futsalPitch:"P5",
@@ -379,7 +385,8 @@ function createData_Game()
         hourlyPrice:"H4",
         promoPrice:"",
         bookedPrice:"",
-        owner:""});
+        owner:"",
+        bookedBy:"Ganesh"});
    Games.insert({_id:"G6",
         futsalPark:"FP3",
         futsalPitch:"P6",
@@ -390,7 +397,8 @@ function createData_Game()
         hourlyPrice:"H4",
         promoPrice:"",
         bookedPrice:"",
-        owner:""});
+        owner:"",
+        bookedBy:"Ganesh"});
    Games.insert({_id:"G7",
         futsalPark:"FP4",
         futsalPitch:"P7",
@@ -401,7 +409,8 @@ function createData_Game()
         hourlyPrice:"H4",
         promoPrice:"",
         bookedPrice:"",
-        owner:""});
+        owner:"",
+        bookedBy:"Ganesh"});
    Games.insert({_id:"G8",
         futsalPark:"FP4",
         futsalPitch:"P8",
@@ -412,7 +421,8 @@ function createData_Game()
         hourlyPrice:"H4",
         promoPrice:"",
         bookedPrice:"",
-        owner:""});
+        owner:"",
+        bookedBy:"Yuehao"});
    Games.insert({_id:"G9",
         futsalPark:"FP5",
         futsalPitch:"P9",
@@ -423,7 +433,8 @@ function createData_Game()
         hourlyPrice:"H4",
         promoPrice:"",
         bookedPrice:"",
-        owner:""});
+        owner:"",
+        bookedBy:"Yuehao"});
    Games.insert({_id:"G10",
         futsalPark:"FP5",
         futsalPitch:"P10",
@@ -434,7 +445,8 @@ function createData_Game()
         hourlyPrice:"H4",
         promoPrice:"",
         bookedPrice:"",
-        owner:""});
+        owner:"",
+        bookedBy:"Yuehao"});
 
 }
 

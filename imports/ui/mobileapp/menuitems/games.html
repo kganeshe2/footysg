@@ -2,5 +2,24 @@
 
 <a href="/home">&times;</a>
 <h1>MY GAMES</h1>
-
+{{#each games}}
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-xs-12 col-md-6 col-md-offset-3">
+				<div class="games-container">
+					<div class="games-header">
+					 	<h2>Game 1</h2>
+					</div>
+					<div class="games-body">
+						<p>Pitch: {{futsalPitch}} @ {{futsalPark}}</p>
+						<p>Time: from {{startTime}} to {{endTime}} on {{date}}</p> 
+					</div>
+					<div class="games-footer">
+						<button class="btn btn-danger cancel-game">cancel</button>
+					</div>
+				</div>
+			</div>
+		</div>
+</div>
+{{/each}}
 </template>
