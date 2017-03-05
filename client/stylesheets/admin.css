@@ -1,6 +1,19 @@
 /*CSS for Admin Dashboard Starts Here*/
+
 .usersSection{
   background-color: grey;
+}
+
+
+.navbar-admin-top{
+  margin-bottom: 0px;
+  background-color: #0E6655;
+}
+
+.navbar-admin-bottom{
+  margin-bottom: 0px;
+  border-color: white;
+  background-color: white;
 }
 /*CSS for Admin Dashboard Ends Here*/
 

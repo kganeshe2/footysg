@@ -1,0 +1,23 @@
+<template name="superadmin">
+	<h1>superadmin page</h1>
+	<h2>Regions</h2>
+
+	{{#each returnRegions}}
+		{{country}}
+		{{regionName}}
+		<br>
+	{{/each}}
+
+	<h2>Futsal Parks</h2>
+
+	{{#each returnFutsalParks}}
+		{{name}}
+		{{description}}
+		{{pitches}}
+		{{pitchSizes}}
+		{{facilities}}
+		{{region}}
+		{{owner}}
+		<br>
+	{{/each}}
+</template>

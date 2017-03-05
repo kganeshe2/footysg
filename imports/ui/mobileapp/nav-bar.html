@@ -1,0 +1,53 @@
+<template name="navBar">
+	{{#if home}}
+	<!-- transparent nav bar with expandable menu button -->
+ 	<nav class="nav-bar nav-bar-transparent {{navBarState}}">
+ 			<div class="nav-bar-left">
+			<a><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span></a>
+		</div>
+		<div class="nav-bar-title">
+			{{currentPath}}
+		</div>
+		<div class="nav-bar-right"></div>								
+	</nav>
+	{{else}}
+	<!-- regular nav bar with back button -->
+ 	<nav class="nav-bar {{navBarState}}">
+ 		<div class="nav-bar-left">
+			<a><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span></a>
+		</div>
+		<div class="nav-bar-title">
+			{{currentPath}}
+		</div>
+		<div class="nav-bar-right"></div>								
+	</nav>
+	{{/if}}
+	<div class="sidenav {{menuState}}">
+		<div class="">
+			<a href="#" class="closearea"></a>
+			<a href="/payment">Payment</a>
+			<a href="/games">My Games</a>
+			<a href="#">Rate us 5 Stars</a>
+			<a href="/account">My Account</a>
+		</div>
+	</div>
+	<div class="home-body {{homeBodyState}}">
+		{{>yield}}
+	</div>
+
+	<!--div id="mySidenav" class="sidenav {{menuState}}">
+	<div style="width:250px">
+	  <a href="#" class="closebtn">&times;</a>
+	   {{#if currentUser}}
+        Welcome <strong>{{currentUser.services.facebook.first_name}}</strong>
+       {{/if}}
+	  <a href="#">My Account</a>
+	  <a href="#">My Games</a>
+	  <a href="#">Help & Support</a>
+	  {{#if currentUser}}
+	  <a href="#" class='log-out'>Logout</a>
+	  {{/if}}
+	  </div>
+	</div-->
+</template>
+
