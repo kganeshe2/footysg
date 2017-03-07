@@ -337,12 +337,8 @@ function createData_Game()
         hourlyPrice:"H4",
         promoPrice:"",
         bookedPrice:"",
-<<<<<<< HEAD
-        owner:""});
-=======
         owner:"",
         bookedBy:"Mellavin"});
->>>>>>> footySG/master
    Games.insert({_id:"G2",
         futsalPark:"FP1",
         futsalPitch:"P2",
@@ -353,12 +349,8 @@ function createData_Game()
         hourlyPrice:"H4",
         promoPrice:"",
         bookedPrice:"",
-<<<<<<< HEAD
-        owner:""});
-=======
         owner:"",
         bookedBy:"Mellavin"});
->>>>>>> footySG/master
    Games.insert({_id:"G3",
         futsalPark:"FP2",
         futsalPitch:"P3",
@@ -369,12 +361,8 @@ function createData_Game()
         hourlyPrice:"H4",
         promoPrice:"",
         bookedPrice:"",
-<<<<<<< HEAD
-        owner:""});
-=======
         owner:"",
         bookedBy:"Mellavin"});
->>>>>>> footySG/master
    Games.insert({_id:"G4",
         futsalPark:"FP2",
         futsalPitch:"P4",
@@ -385,12 +373,8 @@ function createData_Game()
         hourlyPrice:"H4",
         promoPrice:"",
         bookedPrice:"",
-<<<<<<< HEAD
-        owner:""});
-=======
         owner:"",
         bookedBy:"Mellavin"});
->>>>>>> footySG/master
    Games.insert({_id:"G5",
         futsalPark:"FP3",
         futsalPitch:"P5",
@@ -401,12 +385,8 @@ function createData_Game()
         hourlyPrice:"H4",
         promoPrice:"",
         bookedPrice:"",
-<<<<<<< HEAD
-        owner:""});
-=======
         owner:"",
         bookedBy:"Ganesh"});
->>>>>>> footySG/master
    Games.insert({_id:"G6",
         futsalPark:"FP3",
         futsalPitch:"P6",
@@ -417,12 +397,8 @@ function createData_Game()
         hourlyPrice:"H4",
         promoPrice:"",
         bookedPrice:"",
-<<<<<<< HEAD
-        owner:""});
-=======
         owner:"",
         bookedBy:"Ganesh"});
->>>>>>> footySG/master
    Games.insert({_id:"G7",
         futsalPark:"FP4",
         futsalPitch:"P7",
@@ -433,12 +409,8 @@ function createData_Game()
         hourlyPrice:"H4",
         promoPrice:"",
         bookedPrice:"",
-<<<<<<< HEAD
-        owner:""});
-=======
         owner:"",
         bookedBy:"Ganesh"});
->>>>>>> footySG/master
    Games.insert({_id:"G8",
         futsalPark:"FP4",
         futsalPitch:"P8",
@@ -449,12 +421,8 @@ function createData_Game()
         hourlyPrice:"H4",
         promoPrice:"",
         bookedPrice:"",
-<<<<<<< HEAD
-        owner:""});
-=======
         owner:"",
         bookedBy:"Yuehao"});
->>>>>>> footySG/master
    Games.insert({_id:"G9",
         futsalPark:"FP5",
         futsalPitch:"P9",
@@ -465,12 +433,8 @@ function createData_Game()
         hourlyPrice:"H4",
         promoPrice:"",
         bookedPrice:"",
-<<<<<<< HEAD
-        owner:""});
-=======
         owner:"",
         bookedBy:"Yuehao"});
->>>>>>> footySG/master
    Games.insert({_id:"G10",
         futsalPark:"FP5",
         futsalPitch:"P10",
