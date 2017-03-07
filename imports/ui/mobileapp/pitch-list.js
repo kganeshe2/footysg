@@ -23,3 +23,9 @@ Template.pitchList.events({
     $('#new_pitch_form').modal('hide');
   },
 });
+
+Template.pitchListItem.helpers({
+  encodedName(name){
+    return encodeURIComponent(name);
+  }
+});
