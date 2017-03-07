@@ -5,13 +5,15 @@ import { Meteor } from 'meteor/meteor';
 import '/imports/api/pitches.js';
 import '/imports/api/transactions.js';
 import '/imports/api/games.js';
-
+import '/imports/api/users.js';
 
 import { Regions } from '/imports/api/pitches.js';
 import { HourlyPrice } from '/imports/api/pitches.js';
 import { FutsalParks } from '/imports/api/pitches.js';
 import { Pitches } from '/imports/api/pitches.js';
 import { Users } from '/imports/api/pitches.js';
+import { Games } from '/imports/api/games.js';
+
 import { Games } from '/imports/api/games.js';
 
 //Pitches.insert({ _id=1,name: "Ganesh", description: "Test Description", region: "Central" });

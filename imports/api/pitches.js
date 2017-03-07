@@ -21,6 +21,7 @@ if (Meteor.isServer) {
   });
   Meteor.publish('parksInRegion', function publicParksByRegion(region_id){
     return FutsalParks.find({region: region_id});
+
   });
   Meteor.publish('parksByName', function publicParksByRegion(park_name){
     return FutsalParks.find({_id: park_name});
@@ -28,7 +29,6 @@ if (Meteor.isServer) {
   Meteor.publish('admin', function publicAdmins(owner) {
     return Pitches.find({ owner: owner });
   });
-
   // To comment pitches as no longer used
   Meteor.publish('pitches', function publicPitches(pitch_id) {
     return Pitches.find({ _id: pitch_id });
