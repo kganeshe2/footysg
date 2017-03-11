@@ -7,6 +7,7 @@ import './login.js';
 import './nav-bar.js';
 import './pitch-info.js';
 import './pitch-list.js';
+import './../loading.js';
 
 import './menuitems/payment.js';
 import './menuitems/account.js';
@@ -33,7 +34,7 @@ Router.route('/games', {
     if (this.ready()) {
       this.render();
     } else {
-      console.log('loading user games ...')
+      this.render('loading');
     }
   },
 });
@@ -54,7 +55,7 @@ Router.route('/home', function routeHome() {
     });
     this.render('home');
   } else {
-    console.log('retrieving regions ...');
+    this.render('loading');
   }
 });
 
@@ -83,7 +84,7 @@ Router.route('/pitch-list/:region', function routeList() {
       }
     });
   } else {
-    console.log('retrieving regions ...');
+    this.render('loading');
   }
   // console.log(pitchList);
 });
@@ -103,17 +104,6 @@ Router.route('/pitch-info/:parkName/:pitchName', function routePitch() {
     });
     this.render('pitchInfo');
   } else {
-    console.log('retrieving pitch info ...');
+    this.render('loading');
   }
 });
-
-/*
-Router.onBeforeAction(function onBefore() {
-  if (!this.ready()) {
-    console.log('retrieving data ...');
-  } else {
-    console.log('next');
-    this.next();
-  }
-});
-*/
