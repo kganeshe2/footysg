@@ -1,0 +1,22 @@
+.game-container {
+
+}
+.game-container .game-body {
+
+}
+
+.game-container .game-body .game-status{
+	float: right;
+}
+
+.game-status.upcoming {
+	background-color: yellow;
+}
+
+.game-status.completed {
+	background-color: green;
+}
+
+.game-status.no-show {
+	background-color: red;
+}
