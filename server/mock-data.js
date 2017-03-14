@@ -2,7 +2,7 @@ import { Regions } from '/imports/api/pitches.js';
 import { HourlyPrice } from '/imports/api/pitches.js';
 import { FutsalParks } from '/imports/api/pitches.js';
 import { Pitches } from '/imports/api/pitches.js';
-import { Users } from '/imports/api/pitches.js';
+import { Users } from '/imports/api/users.js';
 import { Games } from '/imports/api/games.js';
 
 // Create mock data when server is starting

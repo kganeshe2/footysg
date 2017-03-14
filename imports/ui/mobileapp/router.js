@@ -8,6 +8,7 @@ import './nav-bar.js';
 import './pitch-info.js';
 import './pitch-list.js';
 import './../loading.js';
+import './park.js';
 
 import './menuitems/payment.js';
 import './menuitems/account.js';
@@ -59,11 +60,12 @@ Router.route('/home', function routeHome() {
   }
 });
 
-Router.route('/pitch-list/:region', function routeList() {
-  var pitchList = [];
+Router.route('/region/:region', function routeList() {
+  //var pitchList = [];
   this.subscribe('parksInRegion', this.params.region).wait();
   if (this.ready()) {
-    const fusalParks = FutsalParks.find();
+    //const fusalParks = FutsalParks.find();
+    /*
     fusalParks.forEach(function(park) {
       if(park.pitches){
         park.pitches.forEach(function(pitch){
@@ -71,11 +73,11 @@ Router.route('/pitch-list/:region', function routeList() {
           pitchList.push(pitch);
         });
       }
-    });
+    });*/
     this.render('pitchList', {
       // set data context of current URL
       data: {
-         pitchList: pitchList,
+         pitchList: FutsalParks.find(),
       }
     });
     this.layout('navBar', {
@@ -86,20 +88,30 @@ Router.route('/pitch-list/:region', function routeList() {
   } else {
     this.render('loading');
   }
-  // console.log(pitchList);
 });
 
-Router.route('/pitch-info/:parkName/:pitchName', function routePitch() {
+Router.route('/park/:parkName', function routePitch() {
   this.subscribe('parksByName', this.params.parkName).wait();
-  const pitchName = this.params.pitchName;
-
   if (this.ready()) {
-    const a = FutsalParks.find({"pitches.name": pitchName});
-    console.log(a.fetch());
     this.layout('navBar', {
       data: {
         currentPath: this.params.pitchName,
-        pitch: FutsalParks.find({"pitches.name": pitchName}).fetch()[0],
+        pitch: FutsalParks.find().fetch()[0],
+      },
+    });
+    this.render('parkDetail');
+  } else {
+    this.render('loading');
+  }
+});
+
+Router.route('/booking/:parkName', function routePitch() {
+  this.subscribe('parksByName', this.params.parkName).wait();
+  if (this.ready()) {
+    this.layout('navBar', {
+      data: {
+        currentPath: this.params.pitchName,
+        park: FutsalParks.find().fetch()[0],
       },
     });
     this.render('pitchInfo');

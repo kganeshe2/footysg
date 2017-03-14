@@ -1,30 +1,9 @@
-import { Pitches } from '/imports/api/pitches.js';
-
 import './pitch-list.html';
 
 $('').css('background-color','purple');
 $(".pitch-list-item-container").css("background-color", "yellow");
 
 Template.pitchList.events({
-  'submit .new-pitch'(event) {
-    // Prevent default function calls
-    event.preventDefault();
-
-    // Get values
-    const name = event.target.pitchName.value;
-    const description = event.target.pitchDescription.value;
-    const region = event.target.pitchRegion.value;
-
-    // Insert into db
-    Pitches.insert({
-      name: name,
-      description: description,
-      region: region,
-    });
-
-    // Dismiss modal
-    $('#new_pitch_form').modal('hide');
-  },
 });
 
 Template.pitchListItem.helpers({

@@ -3,6 +3,7 @@ import { ReactiveDict } from 'meteor/reactive-dict';
 
 import './pitch-info.html';
 import { Transactions, Unavailabletimes } from '/imports/api/transactions.js';
+import { Games } from '/imports/api/games.js'
 
 // To pender over value type
 let bookDate = 0;
@@ -10,9 +11,10 @@ let startTime = 0;
 let endTime = 0;
 
 Template.pitchInfo.onCreated(function newPitchInfo() {
+  console.log(this);
   this.state = new ReactiveDict();
-  this.subscribe('tunavails', Template.currentData().pitch._id);
-  this.subscribe('transactions', Template.currentData().pitch._id);
+  this.subscribe('tunavails', Template.currentData().park._id);
+  this.subscribe('transactions', Template.currentData().park._id);
 });
 
 Template.pitchInfo.helpers({
@@ -44,9 +46,30 @@ Template.pitchInfo.helpers({
 
 Template.pitchInfo.events({
   'click #js-book'() {
+    console.log(this);
+    // Check user
+    if (Meteor.user()){
+      Games.insert({
+        futsalPark: this._id,
+        "futsalPitch": "P1",
+        "date": bookDate,
+        "startTime": startTime,
+        "endTime": endTime,
+        "noOfHours": "1",
+        "hourlyPrice": "H4",
+        "promoPrice": "",
+        "bookedPrice": "",
+        "owner": this.owner,
+        "bookedBy": Meteor.userId(),
+        "status": "Upcoming",
+      });
+    } else{
+      alert('please login');
+    }
+
     // Check if the transactions exists
     const trans = Transactions.find({
-      pitch_id: Template.currentData().pitch._id,
+      pitch_id: Template.currentData().park._id,
       user_id: 'test_id',
       bookDate: bookDate,
       startTime: startTime,
