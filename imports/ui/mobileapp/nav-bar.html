@@ -2,7 +2,7 @@
 	{{#if home}}
 	<!-- transparent nav bar with expandable menu button -->
  	<nav class="nav-bar nav-bar-transparent {{navBarState}}">
- 			<div class="nav-bar-left">
+ 			<div class="nav-bar-left flexbox">
 			<a><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span></a>
 		</div>
 		<div class="nav-bar-title">
@@ -23,8 +23,15 @@
 	</nav>
 	{{/if}}
 	<div class="sidenav {{menuState}}">
-		<div class="">
-			<a href="#" class="closearea"></a>
+		<a href="#" class="account-section text-center">
+			<img src="img/placeholder-user.png" alt="..." class="img-responsive img-circle account-section-image">
+			<div class="account-section-name">
+				{{#if currentUser}}
+			    	<strong>{{currentUser.services.facebook.last_name}}</strong>
+			    {{/if}}
+		    </div>
+		</a>
+		<div class="links-section">
 			<a href="/payment">Payment</a>
 			<a href="/games">My Games</a>
 			<a href="#">Rate us 5 Stars</a>
@@ -34,20 +41,5 @@
 	<div class="home-body {{homeBodyState}}">
 		{{>yield}}
 	</div>
-
-	<!--div id="mySidenav" class="sidenav {{menuState}}">
-	<div style="width:250px">
-	  <a href="#" class="closebtn">&times;</a>
-	   {{#if currentUser}}
-        Welcome <strong>{{currentUser.services.facebook.first_name}}</strong>
-       {{/if}}
-	  <a href="#">My Account</a>
-	  <a href="#">My Games</a>
-	  <a href="#">Help & Support</a>
-	  {{#if currentUser}}
-	  <a href="#" class='log-out'>Logout</a>
-	  {{/if}}
-	  </div>
-	</div-->
 </template>
 
