@@ -1,10 +1,14 @@
+.login-body{
+	height: 100vh;
+	background-color: #2D4262;
+}
 .login-logo{
 	margin: auto;
  	position: absolute;
   	top: 0; left: 0; bottom: 0; right: 0;
   	height:200px;
   	width:80%;
-  	color: black;
+  	color: #F52549;
 }
 .login-buttons{
  	margin: auto;

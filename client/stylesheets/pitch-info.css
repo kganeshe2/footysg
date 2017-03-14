@@ -1,12 +1,26 @@
 .pitch-info{
-	margin-top: 9vh;
+	padding-top: 9vh;
+	height: 100vh;
 }
 .pitch-info-container{
- background-color: grey;
+}
+.pitch-info-image{	
+ 	height: 48vh;
+ 	filter: brightness(50%);
 }
 .pitch-info-title{
-  background-color: yellow;
+	height: 5vh;
+  	background-color: black;
+  	color:white;
 }
 .pitch-info-description{
-  background-color: purple;
+	height: 30vh;	
+	font-size: 16px;
+}
+
+.book-now-button{
+	height: 8vh;
+	width: 100%;
+	background-color: #F52549;
+	color: white;
 }

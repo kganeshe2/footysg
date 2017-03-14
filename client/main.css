@@ -2,15 +2,11 @@ body{
 	-moz-user-select: none;
     -webkit-user-select: none;
     -ms-user-select: none;
-    
-    background-color: white;
-	/*background: #43cea2; */
-	/* For browsers that do not support gradients */
-	/*background: -webkit-linear-gradient(to bottom, #43cea2 , #185a9d);*/
-	/* Chrome 10-25, Safari 5.1-6 */
-	/*background: linear-gradient(to bottom, #43cea2 , #185a9d); */
-	/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-	font-size: 20px;
-	font-family: bebasregular; 
+	font-size: 18px;
 	color: black;
+}
+
+.remove-col-padding{
+	padding-left: 0;
+	padding-right: 0;
 }

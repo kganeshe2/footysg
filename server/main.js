@@ -14,8 +14,6 @@ import { Pitches } from '/imports/api/pitches.js';
 import { Users } from '/imports/api/pitches.js';
 import { Games } from '/imports/api/games.js';
 
-import { Games } from '/imports/api/games.js';
-
 //Pitches.insert({ _id=1,name: "Ganesh", description: "Test Description", region: "Central" });
 
 function createData_Pitches()
