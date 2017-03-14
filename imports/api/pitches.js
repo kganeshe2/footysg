@@ -21,6 +21,7 @@ if (Meteor.isServer) {
   });
   Meteor.publish('parksInRegion', function publicParksByRegion(region_id){
     return FutsalParks.find({region: region_id});
+
   });
   Meteor.publish('parksByName', function publicParksByRegion(park_name){
     return FutsalParks.find({_id: park_name});

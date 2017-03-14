@@ -2,6 +2,9 @@ import { Pitches } from '/imports/api/pitches.js';
 
 import './pitch-list.html';
 
+$('').css('background-color','purple');
+$(".pitch-list-item-container").css("background-color", "yellow");
+
 Template.pitchList.events({
   'submit .new-pitch'(event) {
     // Prevent default function calls
