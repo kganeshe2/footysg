@@ -9,7 +9,7 @@ Template.navBar.events({
 		Session.set('homeBodyState', 'home-body-pushed');
 		console.log("open sesame");
 	},
-	'click .closearea': function(){
+	'click .account-section': function(){
 		Session.set('menuState', 'menu-closed');
 		Session.set('homeBodyState', 'home-body-unpushed');
 	    console.log("close sesame");

@@ -1,10 +1,15 @@
 <template name="pitchList">
 	<div class="pitch-list">
-		<div class="pitch-list-section">
-			<div class="pitch-list-container col-xs-12 col-md-6 col-md-offset-3">
-				{{#each pitchList}}
-					{{> pitchListItem}}
-				{{/each}}
+		<div class="container-fluid">
+			<div class="row">
+				<div class="pitch-list-section">
+					Book a pitch in any of these Futsal Parks the NORTH Region: Yishun, Sembawang, Yio Chu Kang
+				</div>
+				<div class="pitch-list-container col-xs-12 col-md-6 col-md-offset-3 remove-col-padding">
+					{{#each pitchList}}
+						{{> pitchListItem}}
+					{{/each}}
+				</div>
 			</div>
 		</div>
 	</div>
@@ -12,13 +17,16 @@
 
 <template name="pitchListItem">
 	<div class="pitch-list-item-container">
+		<div class="pitch-list-item-image">
+			<img src="/img/mock-pitch-2.jpg" width= "100%" height="100%">
+		</div>
 		<div class="pitch-list-item-title">
-		 	<h2><a href="/park/{{_id}}">Pitch {{name}}</a></h2>
+			<a href="/park/{{_id}}">Pitch {{name}}</a>
 		 	{{description}}
 		</div>
 		<div class="pitch-list-item-description">
-			<p>Pitch Types: {{pitchSizes}}</p>
-			<p>Facilities: {{facilities}}</p> 
+			Pitch Types: {{pitchSizes}}<br>
+			Facilities: {{facilities}}
 		</div>
 	</div>
 </template>
