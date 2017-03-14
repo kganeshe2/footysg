@@ -19,11 +19,11 @@ if (Meteor.isServer) {
   Meteor.publish('regions', function publicRegions(){
     return Regions.find();
   });
-  Meteor.publish('parksInRegion', function publicParksByRegion(region_id){
+  Meteor.publish('parksInRegion', function publicParksByRegion(region_id) {
     return FutsalParks.find({region: region_id});
 
   });
-  Meteor.publish('parksByName', function publicParksByRegion(park_name){
+  Meteor.publish('parksByName', function publicParksByRegion(park_name) {
     return FutsalParks.find({_id: park_name});
   });
   Meteor.publish('admin', function publicAdmins(owner) {
