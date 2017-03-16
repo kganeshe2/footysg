@@ -1,0 +1,27 @@
+.pitch-list{
+	padding-top: 9vh;
+	background-color: #2D4262;
+	height: 100vh;
+}
+.pitch-list-section{
+	height:15vh;
+	background-color: #F52549;
+	color: white;
+}
+.pitch-list-item-container{
+	position: relative;
+	height:30vh;
+ 	color: white;
+}
+
+.pitch-list-item-image img{
+	filter: brightness(65%);
+}
+.pitch-list-item-title{ 
+	position: absolute;
+	top: 0;	
+}
+.pitch-list-item-description{
+	position: absolute;
+	bottom: 0;
+}

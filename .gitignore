@@ -1,1 +1,6 @@
-node_modules/
+# Meteor Runtime Environment #
+##############################
+node_modules
+imports/ui/admin.js
+
+imports/ui/home.html

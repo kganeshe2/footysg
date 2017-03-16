@@ -1,0 +1,51 @@
+.flexbox{
+	position: relative;
+	display: flex;
+	justify-content: center; /* align horizontal */
+	align-items: center; /* align vertical */	
+}
+
+
+
+/* Calendar Box CSS Fine Tune Start*/
+#time-calendar{
+  display: none;
+}
+.time-row{
+  padding: 0 0 10px;
+}
+
+.time-cell{
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+.cell{
+  width: 6px;
+  height: 18px;
+}
+
+.no-left-padding{
+  padding-left: 0;
+}
+
+.no-side-padding{
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.no-side-margin{
+  margin-left: 0;
+  margin-right: 0;
+}
+/* Calendar Box CSS Fine Tune End*/
+
+/*Booking Session Start*/
+#js-book{
+  float: right;
+}
+
+#booking-section span{
+  font-size: 12px;
+}
+/*Booking Session End*/

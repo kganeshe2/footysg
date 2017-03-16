@@ -1,0 +1,112 @@
+.nav-bar{
+    height: 9vh;
+    width: 100%;
+    background-color: #2D4262;
+    color: white;
+    position: fixed;
+    z-index: 99;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-bar-transparent{
+    background-color: transparent;
+    border-color: transparent;
+}
+
+.nav-bar-left{
+    width: 20%;
+    height:100%;
+    text-align: center;
+}
+.nav-bar-title{
+    text-align: center;
+}
+.nav-bar-right{
+    width: 20%;
+}
+/* The side navigation menu */
+.sidenav {
+    height: 100%; /* 100% Full-height */
+    width: 250px; /* 250px width */
+    transform: translate3d(-250px,0px,0px);
+    position: fixed; /* Stay in place */
+    z-index: 1040; /* Stay on top */
+    top: 0;
+    left: 0;
+    background-color: #111; /* Transparent*/
+    overflow-x: hidden; /* Disable horizontal scroll */
+    transition: 0.2s; /* 0.5 second transition effect to slide in the sidenav */
+}
+
+/* The navigation menu links */
+.sidenav a {
+    text-decoration: none;
+    color: #818181;
+    display: block;
+    transition: 0.3s
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover, .offcanvas a:focus{
+    color: #f1f1f1;
+}
+
+/* Position and style the close button (top right corner) */
+.sidenav .account-section {
+    width:100%;
+    padding: 5vh 0px 5vh 0px;
+    height:25vh;
+    top: 0;
+}
+
+.sidenav .account-section-image{
+    width:40%;
+    display: block;
+    margin: 0 auto;
+}
+
+
+.sidenav .account-section-name{
+    padding: 1vh 0px 0px 0px;
+}
+
+
+
+.sidenav .links-section {
+    padding: 8px 8px 8px 32px;
+}
+
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+.home-body {
+    transition: transform 0.2s;
+    overflow: hidden;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+}
+
+/* When side menu is opened */
+.menu-open{
+    transform: translate3d(0px, 0px, 0px);
+}
+
+.home-body-pushed{
+    transform: translate3d(250px, 0px, 0px);
+}
+
+/* When side menu is closed */
+.menu-closed{
+    transform: translate3d(-250px, 0px, 0px);
+}
+
+.home-body-unpushed{
+    transform: translate3d(0px, 0px, 0px);
+}
+

@@ -1,0 +1,21 @@
+<template name="amazingTimePicker">
+	<h2>Available Date</h2>
+	<div id="month-calendar"></div>
+
+	{{#if showDate}}
+	<h3>Available Time</h3>
+	<div class="xcontainer-fluid" id="time-panel">
+		{{#with timeSlot showDate}}	
+			{{#each row in avaTimes}}
+			<div class="row">
+				{{#each cell in row.values}}
+				<div class="col-xs-3">
+					<button class="btn time btn-warning {{isDisabled cell.ava}}" name="{{cell.time}}" value="{{endTime(cell.time)}}">{{cell.time}}am -  {{endTime(cell.time)}}am</button>
+				</div>
+				{{/each}}
+			</div>
+			{{/each}}
+		{{/with}}
+	</div>
+	{{/if}}
+</template>

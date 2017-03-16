@@ -1,0 +1,50 @@
+<template name="home">
+	{{>homeHeader}}
+	{{>homeNews}}
+	{{>homeSectionTitle}}
+	{{>homeRegionList}}
+</template>
+
+<template name="homeHeader">
+	<div class="home-header-section flexbox">
+		<div class="home-header-logo text-center">
+			FootySG 
+		</div>
+	</div>
+	 {{#if currentUser}}
+        Welcome <strong>{{currentUser.services.facebook.last_name}}</strong>
+    {{/if}}
+</template>
+
+<template name="homeNews">
+	<div class="home-news-row flexbox text-center">
+		NEWS NEWS Welcome to FootySG! Use PROMO CODE: WELCOME20 for 20% 
+	</div>
+</template>
+
+<template name="homeSectionTitle">
+	<div class="home-section-row flexbox text-center">
+		Explore all local pitches below!
+	</div>
+</template>
+
+<template name="homeRegionList">
+	<div class="container-fluid">		
+			<div class="row">
+			{{#each currentPath}}
+				<div class="col-xs-6 home-region-item flexbox">
+					<a href="/region/{{_id}}">
+							{{region}}
+					</a>
+				</div>
+			{{/each}}
+			</div>
+			<div class="row text-center">
+				<div class="col-xs-12 home-region-row">
+					<a href="/pitch-list/all">
+							EXPLORE ALL PITCHES
+					</a>
+				</div>
+			</div>
+	</div>	
+</template>

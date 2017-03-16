@@ -1,11 +1,11 @@
-// import { Template } from 'meteor/templating';
-// import { ReactiveVar } from 'meteor/reactive-var';
+// MOBILE APP IMPORTS
+import '/imports/ui/mobileapp/router.js';
 
-// import routing rule from router.js
-import '../imports/ui/router.js';
+// ADMIN CONSOLE IMPORTS
+import '/imports/ui/admin/router.js';
 
-// import user views
-import '../imports/ui/login.js';
-import '../imports/ui/home.js';
-import '../imports/ui/pitch-list.js';
-import '../imports/ui/pitch-info.js';
+// SUPERADMIN CONSOLE IMPORTS
+import '/imports/ui/superadmin/router.js';
+
+// PROMOPAGE CONSOLE IMPORTS
+import '/imports/ui/promopage/router.js';

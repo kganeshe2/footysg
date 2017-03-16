@@ -1,0 +1,45 @@
+<template name="navBar">
+	{{#if home}}
+	<!-- transparent nav bar with expandable menu button -->
+ 	<nav class="nav-bar nav-bar-transparent {{navBarState}}">
+ 			<div class="nav-bar-left flexbox">
+			<a><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span></a>
+		</div>
+		<div class="nav-bar-title">
+			{{currentPath}}
+		</div>
+		<div class="nav-bar-right"></div>								
+	</nav>
+	{{else}}
+	<!-- regular nav bar with back button -->
+ 	<nav class="nav-bar {{navBarState}}">
+ 		<div class="nav-bar-left">
+			<a><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span></a>
+		</div>
+		<div class="nav-bar-title">
+			{{currentPath}}
+		</div>
+		<div class="nav-bar-right"></div>								
+	</nav>
+	{{/if}}
+	<div class="sidenav {{menuState}}">
+		<a href="#" class="account-section text-center">
+			<img src="img/placeholder-user.png" alt="..." class="img-responsive img-circle account-section-image">
+			<div class="account-section-name">
+				{{#if currentUser}}
+			    	<strong>{{currentUser.services.facebook.last_name}}</strong>
+			    {{/if}}
+		    </div>
+		</a>
+		<div class="links-section">
+			<a href="/payment">Payment</a>
+			<a href="/games">My Games</a>
+			<a href="#">Rate us 5 Stars</a>
+			<a href="/account">My Account</a>
+		</div>
+	</div>
+	<div class="home-body {{homeBodyState}}">
+		{{>yield}}
+	</div>
+</template>
+
