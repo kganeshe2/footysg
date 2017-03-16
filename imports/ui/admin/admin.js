@@ -1,4 +1,5 @@
 import './admin.html';
+
 Template.adminNavBar.events({
 
 });
@@ -11,6 +12,6 @@ Template.adminNavBar.helpers({
 
 Template.adminOverview.helpers({
 	'returnPark': function(){
-		return FutsalParks.find({name: "North Futsal Park 1"})
+		//return FutsalParks.find({name: "North Futsal Park 1"})
 	}
 });

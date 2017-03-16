@@ -2,10 +2,10 @@ import './superadmin.html';
 
 Template.superadmin.helpers({
   returnRegions() {
-    return null
+    return null;
   },
   returnFutsalParks() {
-  	return null
+  	return null;
   }
 });
 
