@@ -15,9 +15,11 @@
 						<span class="game-status {{cssClass status}}">{{status}}</span>
 						<p>Time: from {{startTime}} to {{endTime}} on {{date}}</p> 
 					</div>
+					{{#if showStatus status}}
 					<div class="game-footer">
 						<button class="btn btn-danger cancel-game">cancel</button>
 					</div>
+					{{/if}}
 				</div>
 			</div>
 		</div>
