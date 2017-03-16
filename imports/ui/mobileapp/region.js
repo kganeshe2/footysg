@@ -1,12 +1,12 @@
-import './pitch-list.html';
+import './region.html';
 
 $('').css('background-color','purple');
 $(".pitch-list-item-container").css("background-color", "yellow");
 
-Template.pitchList.events({
+Template.region.events({
 });
 
-Template.pitchListItem.helpers({
+Template.parkItem.helpers({
   encodedName(name){
     return encodeURIComponent(name);
   }

@@ -4,7 +4,7 @@ Template.navBar.events({
 	'click .glyphicon-menu-left': function(){
 		history.back();
 	},
-	'click .glyphicon-menu-hamburger': function(){
+	'click .hamburger-container': function(){
 		Session.set('menuState', 'menu-open');
 		Session.set('homeBodyState', 'home-body-pushed');
 		console.log("open sesame");

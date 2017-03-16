@@ -2,3 +2,5 @@
 ##############################
 node_modules
 imports/ui/admin.js
+
+imports/ui/home.html

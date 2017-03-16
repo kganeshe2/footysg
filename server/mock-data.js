@@ -9,7 +9,7 @@ import { Games } from '/imports/api/games.js';
 Meteor.startup(() => {
   // code to run on server at startup
   if(Pitches.find().count()<1) {
-    createData_Pitches();
+    createData_Parks();
   }
   if(Regions.find().count()<1) {
     createData_Region();
@@ -25,8 +25,8 @@ Meteor.startup(() => {
   }
  });
 
-function createData_Pitches()
-{ //Creating Pitches for Central region
+function createData_Parks()
+{ //Creating Parks for Central region
   Pitches.insert({_id:"P1",
                   name: "Bishan Stadium Soccer Pitch", 
                   description: "Located in the Central, Bishan Stadium is a mere 10 mins walk away from Bishan MRT, which has both Circle Line as well as North-South Line. Despite the easy accessibility to Bishan Stadium, the field is in poor condition. The green of the grass has faded, leaving empty patches around the field. The field is sandy and there are presence of potholes. Due to the uneven ground, some parts of the fields are hard while others are soft. Hopefully, there would be some maintenance of the field soon.", 

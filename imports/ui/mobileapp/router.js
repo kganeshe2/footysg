@@ -5,10 +5,10 @@ import './amazing-time-picker.js';
 import './home.js';
 import './login.js';
 import './nav-bar.js';
-import './pitch-info.js';
-import './pitch-list.js';
+import './booking.js';
+import './region.js';
 import './../loading.js';
-import './park.js';
+import './futsal-park.js';
 
 import './menuitems/payment.js';
 import './menuitems/account.js';
@@ -74,10 +74,11 @@ Router.route('/region/:region', function routeList() {
         });
       }
     });*/
-    this.render('pitchList', {
+  //  var regionName = Regions.find(_id:'this.params.region').find().Region;
+    this.render('region', {
       // set data context of current URL
       data: {
-         pitchList: FutsalParks.find(),
+         parks: FutsalParks.find(),
       }
     });
     this.layout('navBar', {
@@ -90,16 +91,16 @@ Router.route('/region/:region', function routeList() {
   }
 });
 
-Router.route('/park/:parkName', function routePitch() {
+Router.route('/futsal-park/:parkName', function routePitch() {
   this.subscribe('parksByName', this.params.parkName).wait();
   if (this.ready()) {
     this.layout('navBar', {
       data: {
         currentPath: this.params.pitchName,
-        pitch: FutsalParks.find().fetch()[0],
+        futsalPark: FutsalParks.find().fetch()[0],
       },
     });
-    this.render('parkDetail');
+    this.render('futsalPark');
   } else {
     this.render('loading');
   }
@@ -114,7 +115,7 @@ Router.route('/booking/:parkName', function routePitch() {
         park: FutsalParks.find().fetch()[0],
       },
     });
-    this.render('pitchInfo');
+    this.render('booking');
   } else {
     this.render('loading');
   }

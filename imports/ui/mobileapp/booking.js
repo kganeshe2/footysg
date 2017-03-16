@@ -1,7 +1,7 @@
 // eslint-disable-next-line
 import { ReactiveDict } from 'meteor/reactive-dict';
 
-import './pitch-info.html';
+import './booking.html';
 import { Transactions, Unavailabletimes } from '/imports/api/transactions.js';
 import { Games } from '/imports/api/games.js'
 
@@ -10,14 +10,14 @@ let bookDate = 0;
 let startTime = 0;
 let endTime = 0;
 
-Template.pitchInfo.onCreated(function newPitchInfo() {
+Template.booking.onCreated(function newPitchInfo() {
   console.log(this);
   this.state = new ReactiveDict();
   this.subscribe('tunavails', Template.currentData().park._id);
   this.subscribe('transactions', Template.currentData().park._id);
 });
 
-Template.pitchInfo.helpers({
+Template.booking.helpers({
   bookDate() {
     const instance = Template.instance();
     if (instance.state.get('bookDate')) {
@@ -44,7 +44,7 @@ Template.pitchInfo.helpers({
   },
 });
 
-Template.pitchInfo.events({
+Template.booking.events({
   'click #js-book'() {
     console.log(this);
     // Check user
