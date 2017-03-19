@@ -2,7 +2,6 @@ import './home.html';
 
 import '/imports/api/users.js';
 
-Template.homeHeader.onRendered(function(){
+Template.homeHeader.onCreated(function(){
   this.subscribe("userDetails");
-  console.log(Meteor.users.findOne());
 });

@@ -1,13 +1,11 @@
 import './superadmin.html';
-import { Regions } from '/imports/api/mellavin_new_mongo.js';
-import { FutsalParks } from '/imports/api/mellavin_new_mongo.js';
 
 Template.superadmin.helpers({
   returnRegions() {
-    return Regions.find()
+    return null;
   },
   returnFutsalParks() {
-  	return FutsalParks.find()
+  	return null;
   }
 });
 

@@ -17,6 +17,10 @@ Frontend
 nav-bar.html
 ```
 
+- URL: small-letters-and-dash-seperator
+```file
+/fusal-park/{{_id}}
+```
 
 Server
 - MongoDB Collctions (Object): Capital first letter, single noun preferable 

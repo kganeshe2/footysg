@@ -1,0 +1,32 @@
+<template name="region">
+	<div class="pitch-list">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="pitch-list-section">
+					Book a pitch in any of these Futsal Parks the NORTH Region: Yishun, Sembawang, Yio Chu Kang
+				</div>
+				<div class="pitch-list-container col-xs-12 col-md-6 col-md-offset-3 remove-col-padding">
+					{{#each parks}}
+						{{> parkItem}}
+					{{/each}}
+				</div>
+			</div>
+		</div>
+	</div>
+</template>
+
+<template name="parkItem">
+	<div class="pitch-list-item-container">
+		<div class="pitch-list-item-image">
+			<img src="/img/mock-pitch-2.jpg">
+		</div>
+		<div class="pitch-list-item-title">
+			<a href="/futsal-park/{{_id}}">Pitch {{name}}</a>
+		</div>
+		<div class="pitch-list-item-description">
+			Description: {{description}}
+			Pitch Types: {{pitchSizes}}<br>
+			Facilities: {{facilities}}
+		</div>
+	</div>
+</template>

@@ -5,8 +5,10 @@ import './amazing-time-picker.js';
 import './home.js';
 import './login.js';
 import './nav-bar.js';
-import './pitch-info.js';
-import './pitch-list.js';
+import './booking.js';
+import './region.js';
+import './../loading.js';
+import './futsal-park.js';
 
 import './menuitems/payment.js';
 import './menuitems/account.js';
@@ -33,7 +35,7 @@ Router.route('/games', {
     if (this.ready()) {
       this.render();
     } else {
-      console.log('loading user games ...')
+      this.render('loading');
     }
   },
 });
@@ -54,15 +56,16 @@ Router.route('/home', function routeHome() {
     });
     this.render('home');
   } else {
-    console.log('retrieving regions ...');
+    this.render('loading');
   }
 });
 
-Router.route('/pitch-list/:region', function routeList() {
-  var pitchList = [];
+Router.route('/region/:region', function routeList() {
+  //var pitchList = [];
   this.subscribe('parksInRegion', this.params.region).wait();
   if (this.ready()) {
-    const fusalParks = FutsalParks.find();
+    //const fusalParks = FutsalParks.find();
+    /*
     fusalParks.forEach(function(park) {
       if(park.pitches){
         park.pitches.forEach(function(pitch){
@@ -70,11 +73,12 @@ Router.route('/pitch-list/:region', function routeList() {
           pitchList.push(pitch);
         });
       }
-    });
-    this.render('pitchList', {
+    });*/
+  //  var regionName = Regions.find(_id:'this.params.region').find().Region;
+    this.render('region', {
       // set data context of current URL
       data: {
-         pitchList: pitchList,
+         parks: FutsalParks.find(),
       }
     });
     this.layout('navBar', {
@@ -83,37 +87,36 @@ Router.route('/pitch-list/:region', function routeList() {
       }
     });
   } else {
-    console.log('retrieving regions ...');
+    this.render('loading');
   }
-  // console.log(pitchList);
 });
 
-Router.route('/pitch-info/:parkName/:pitchName', function routePitch() {
+Router.route('/futsal-park/:parkName', function routePitch() {
   this.subscribe('parksByName', this.params.parkName).wait();
-  const pitchName = this.params.pitchName;
-
   if (this.ready()) {
-    const a = FutsalParks.find({"pitches.name": pitchName});
-    console.log(a.fetch());
     this.layout('navBar', {
       data: {
         currentPath: this.params.pitchName,
-        pitch: FutsalParks.find({"pitches.name": pitchName}).fetch()[0],
+        futsalPark: FutsalParks.find().fetch()[0],
       },
     });
-    this.render('pitchInfo');
+    this.render('futsalPark');
   } else {
-    console.log('retrieving pitch info ...');
+    this.render('loading');
   }
 });
 
-/*
-Router.onBeforeAction(function onBefore() {
-  if (!this.ready()) {
-    console.log('retrieving data ...');
+Router.route('/booking/:parkName', function routePitch() {
+  this.subscribe('parksByName', this.params.parkName).wait();
+  if (this.ready()) {
+    this.layout('navBar', {
+      data: {
+        currentPath: this.params.pitchName,
+        park: FutsalParks.find().fetch()[0],
+      },
+    });
+    this.render('booking');
   } else {
-    console.log('next');
-    this.next();
+    this.render('loading');
   }
 });
-*/
