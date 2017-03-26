@@ -3,4 +3,9 @@
 <a href="/home">&times;</a>
 <h1>MY ACCOUNT</h1>
 
+{{#if currentUser}}
+        Welcome <strong>{{currentUser.services.facebook.first_name}}</strong>
+        <img src="{{currentUser.profile.picture}}" alt="{{currentUser.username}}">
+        Joined Since : <strong>{{currentUser.createdAt}}</strong>
+{{/if}}
 </template>

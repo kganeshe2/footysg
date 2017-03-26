@@ -24,7 +24,7 @@
 	{{/if}}
 	<div class="sidenav {{menuState}}">
 		<a href="#" class="account-section text-center">
-			<img src="img/placeholder-user.png" alt="..." class="img-responsive img-circle account-section-image">
+			<img src="{{currentUser.profile.picture}}" alt="..." class="img-responsive img-circle account-section-image">
 			<div class="account-section-name">
 				{{#if currentUser}}
 			    	<strong>{{currentUser.services.facebook.last_name}}</strong>

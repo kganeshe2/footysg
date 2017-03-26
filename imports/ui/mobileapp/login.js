@@ -4,11 +4,27 @@ Template.login.events({
     'click #log-in'(event) {
         
         Meteor.loginWithFacebook({requestPermissions: ['public_profile', 'email']}, function(err){
-            if (err) {
-                console.log('Handle errors here: ', err);
-            }else{
-            Router.go('/home') //or whatever Template you wanna go
-              }
+            if (err) 
+            {
+                if (err) 
+                {
+                    console.log('Handle errors here: ', err);
+                }else
+                {
+                    Router.go('/home') //or whatever Template you wanna go
+                }
+            }
+            else
+            {
+                if(Meteor.user().profile.phoneNumber!=null)
+                {
+                    Router.go('/home')
+                }
+                else
+                {
+                  Router.go('/registration-form')
+                }
+            }
         });
     },
     'click #continue-as-guest'(event){

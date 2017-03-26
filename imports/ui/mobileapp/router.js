@@ -9,10 +9,16 @@ import './booking.js';
 import './region.js';
 import './../loading.js';
 import './futsal-park.js';
+import './registration-form.js';
 
 import './menuitems/payment.js';
 import './menuitems/account.js';
 import './menuitems/games.js';
+
+//This points to the Registration Page
+Router.route('/registration-form', {
+  template:'registration',
+});
 
 
 Router.route('/payment', {

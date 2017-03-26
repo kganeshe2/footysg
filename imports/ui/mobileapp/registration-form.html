@@ -1,0 +1,14 @@
+<template name="registration">
+{{>registrationForm}}
+</template>
+
+<template name="registrationForm">
+	<h1 class="register-title">Just one last Step!</h1>
+  <form class="register">
+    <input type="text" class="register-input" placeholder="Username" pattern="[A-Za-z]{8,15}" name="registerUsername" required="required"  oninvalid="setCustomValidity('Username can only contain Alphabets and has to be between 8 to 15 characters long')"
+    onchange="try{setCustomValidity('')}catch(e){}">
+    <input type="phoneNumber" class="register-input" placeholder="Phone Number" pattern="^(6|8|9)\d{7}" name="registerPhoneNumber" required="required" oninvalid="setCustomValidity('Please enter a valid Phone number')"
+    onchange="try{setCustomValidity('')}catch(e){}">
+    <input type="submit" value="Create Account" class="register-button">
+  </form>
+</template>
